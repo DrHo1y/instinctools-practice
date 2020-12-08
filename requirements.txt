@@ -1,0 +1,7 @@
+react
+redux 
+redux-saga
+styled-components
+
+express
+mongoDB
