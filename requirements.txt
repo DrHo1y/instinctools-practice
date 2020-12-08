@@ -1,7 +1,12 @@
-react
-redux 
-redux-saga
-styled-components
+react +
+redux +
+redux-saga +
+styled-components +
 
-express
-mongoDB
+express +
+mongoDB +
+
+dev
+--------
+nodemon +
+concurrently +
