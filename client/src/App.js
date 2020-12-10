@@ -1,8 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Container } from './styles/styles'
+import HeaderComponent from './components/Header/HeaderComponent'
 
 function App() {
-  return <div>123</div>
+  return (
+    <Container headerSize='110px'>
+      <HeaderComponent />
+      <div>content main page</div>
+    </Container>
+  )
 }
 
 const mapStateToProps = (state) => state
