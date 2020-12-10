@@ -1,26 +1,11 @@
-import { connect } from 'react-redux'
 import React from 'react'
-import { Button, StyledLink, Title, Wrapper } from './styles/ex'
-import { actionClick } from './redux/actions/appAction'
+import { connect } from 'react-redux'
 
-function App(props) {
-  const handleButtonClick = () => {
-    console.log('click on UI')
-    props.actionClick()
-  }
-
-  return (
-    <Wrapper>
-      <Title>Hello World!</Title>
-      <Button onClick={handleButtonClick}>Click Me</Button>
-      <StyledLink href='https://www.google.com'>Google</StyledLink>
-    </Wrapper>
-  )
+function App() {
+  return <div>123</div>
 }
 
 const mapStateToProps = (state) => state
-const mapDispatchToProps = {
-  actionClick,
-}
+const mapDispatchToProps = {}
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)

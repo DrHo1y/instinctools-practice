@@ -1,7 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const config = require('config')
-const c = require('config')
 
 const app = express()
 const PORT = config.get('PORT') || 5000
@@ -24,3 +23,5 @@ async function serverStart() {
     process.exit(1)
   }
 }
+
+serverStart()
