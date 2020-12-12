@@ -3,7 +3,7 @@ import {
   HeaderWrapperElement,
   Img,
   HeaderWrapperElementTitle,
-} from '../../../styles/styles'
+} from '../../../styles/styledComponents'
 
 const HeaderElement = (props) => {
   return (

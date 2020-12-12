@@ -2,7 +2,7 @@ import React from 'react'
 import {
   HeaderWrapperFirstControlWrapper,
   Button,
-} from '../../../styles/styles'
+} from '../../../styles/styledComponents'
 
 const HeaderFirstControl = (props) => {
   return (

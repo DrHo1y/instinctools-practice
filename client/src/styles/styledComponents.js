@@ -106,7 +106,7 @@ export const Button = styled.div`
   padding: 6px 10px;
   border-radius: 5px;
   border: ${(props) => props.border || 'none'};
-  background: ${(props) => props.color};
+  background: ${(props) => props.color || theme.primaryColor};
   color: ${(props) => props.textColor};
   font-size: ${(props) => props.fontSize || '16px'};
   font-weight: ${(props) => props.fontWeight || '600'};
@@ -115,4 +115,40 @@ export const Button = styled.div`
   &:hover {
     color: ${theme.secondaryColor};
   }
+`
+
+export const ContainerMainPage = styled.div`
+  height: 260px;
+  display: block;
+  padding: 40px 5px;
+`
+export const MainPageText = styled.p`
+  font-size: ${(props) => props.size};
+  font-weight: ${(props) => props.weight};
+  color: ${(props) => props.color || theme.textColor};
+  line-height: 30px;
+`
+
+export const SearchForm = styled.form`
+  width: 100%;
+  height: 60px;
+  display: flex;
+  background: ${theme.secondaryColor};
+  border-radius: 5px;
+  padding: 5px;
+  margin-top: 20px;
+`
+export const Input = styled.input`
+  height: 100%;
+  width: ${(props) => props.width};
+  border-radius: 5px;
+  padding: 0 5px 0 10px;
+  margin-right: 5px;
+`
+export const ButtonForForm = styled.button`
+  width: ${(props) => props.width};
+  background-color: ${theme.primaryColor};
+  font-size: ${(props) => props.size || '16px'};
+  font-weight: 600;
+  border-radius: 5px;
 `
