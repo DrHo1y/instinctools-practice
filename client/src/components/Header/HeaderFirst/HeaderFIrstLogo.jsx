@@ -3,7 +3,7 @@ import {
   HeaderWrapperFirstLogoWrapper,
   LogoSpan,
   Logo,
-} from '../../../styles/styles'
+} from '../../../styles/styledComponents'
 
 const HeaderFirstLogo = (props) => {
   return (

@@ -1,5 +1,5 @@
 import React from 'react'
-import { HeaderWrapperSecond } from '../../../styles/styles'
+import { HeaderWrapperSecond } from '../../../styles/styledComponents'
 import home from '../../../img/home.png'
 import stays from '../../../img/stays.png'
 import HeaderElement from './HeaderElement'

@@ -1,13 +1,14 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Container } from './styles/styles'
+import { Container } from './styles/styledComponents'
 import HeaderComponent from './components/Header/HeaderComponent'
+import MainPage from './pages/MainPage/MainPage'
 
 function App() {
   return (
     <Container headerSize='110px'>
       <HeaderComponent />
-      <div>content main page</div>
+      <MainPage />
     </Container>
   )
 }

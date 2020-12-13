@@ -1,6 +1,6 @@
 import React from 'react'
 import HeaderFirstLogo from './HeaderFIrstLogo'
-import { HeaderWrapperFirst } from '../../../styles/styles'
+import { HeaderWrapperFirst } from '../../../styles/styledComponents'
 import HeaderFirstControl from './HederFirstControl'
 
 const HeaderFirst = (props) => {

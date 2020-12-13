@@ -1,12 +1,5 @@
 import React from 'react'
-import {
-  theme,
-  Header,
-  HeaderWrapperSecond,
-  Img,
-  HeaderWrapperElement,
-  HeaderWrapperElementTitle,
-} from '../../styles/styles'
+import { theme, Header } from '../../styles/styledComponents'
 import HeaderFirst from './HeaderFirst/HeaderFirst'
 import HeaderSecond from './HeaderSecond/HeaderSecond'
 
