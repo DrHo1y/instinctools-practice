@@ -56,8 +56,9 @@ const FormMainPage = (props) => {
           <Input
             width='125px'
             type='date'
-            placeholder='Date in'
             name={`dateIn`}
+            min={`${date.year}-${date.month}-${date.day}`}
+            max={`${date.year + 1}-${date.month}-${date.day}`}
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.dateIn}
@@ -69,13 +70,17 @@ const FormMainPage = (props) => {
           <Input
             width='125px'
             type='date'
-            placeholder='Date out'
             name={`dateOut`}
+            min={`${date.year}-${date.month}-${date.day + 1}`}
+            max={`${date.year + 1}-${date.month}-${date.day + 1}`}
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.dateOut}
             error={touched.dateOut && errors.dateOut ? 'error' : ''}
           />
+          {touched.dateIn && errors.dateIn && (
+            <FormError>{errors.dateOut}</FormError>
+          )}
           <Input
             width='113px'
             type='number'
