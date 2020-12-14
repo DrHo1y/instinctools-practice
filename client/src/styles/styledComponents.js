@@ -137,6 +137,7 @@ export const SearchForm = styled.form`
   border-radius: 5px;
   padding: 5px;
   margin-top: 20px;
+  position: relative;
 `
 export const Input = styled.input`
   height: 100%;
@@ -144,6 +145,7 @@ export const Input = styled.input`
   border-radius: 5px;
   padding: 0 5px 0 10px;
   margin-right: 5px;
+  border: ${(props) => (props.error ? '2px solid #eb4034' : '')};
 `
 export const ButtonForForm = styled.button`
   width: ${(props) => props.width};
@@ -151,4 +153,13 @@ export const ButtonForForm = styled.button`
   font-size: ${(props) => props.size || '16px'};
   font-weight: 600;
   border-radius: 5px;
+`
+
+export const FormError = styled.p`
+  position: absolute;
+  bottom: -20px;
+  left: 5px;
+  font-size: 16px;
+  color: red;
+  font-weight: 600;
 `
