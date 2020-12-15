@@ -1,15 +1,19 @@
 import React from 'react'
+import { BrowserRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { useRoutes } from './routes'
 import { Container } from './styles/styledComponents'
 import HeaderComponent from './components/Header/HeaderComponent'
-import MainPage from './pages/MainPage/MainPage'
 
 function App() {
+  const routes = useRoutes()
   return (
-    <Container headerSize='110px'>
-      <HeaderComponent />
-      <MainPage />
-    </Container>
+    <BrowserRouter>
+      <Container headerSize='110px'>
+        <HeaderComponent />
+        {routes}
+      </Container>
+    </BrowserRouter>
   )
 }
 

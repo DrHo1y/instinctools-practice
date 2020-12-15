@@ -140,15 +140,17 @@ export const SearchForm = styled.form`
   position: relative;
 `
 export const Input = styled.input`
-  height: 100%;
+  height: ${(props) => props.height || '100%'};
   width: ${(props) => props.width};
   border-radius: 5px;
   padding: 0 5px 0 10px;
   margin-right: 5px;
-  border: ${(props) => (props.error ? '2px solid #eb4034' : '')};
+  margin-bottom: ${(props) => (props.margin ? '10px' : '0')};
+  border: ${(props) => (props.error ? '2px solid #eb4034' : props.border)};
 `
 export const ButtonForForm = styled.button`
   width: ${(props) => props.width};
+  height: ${(props) => props.height};
   background-color: ${theme.primaryColor};
   font-size: ${(props) => props.size || '16px'};
   font-weight: 600;
@@ -160,6 +162,28 @@ export const FormError = styled.p`
   bottom: -20px;
   left: 5px;
   font-size: 16px;
+  color: red;
+  font-weight: 600;
+`
+
+export const LoginRegisterForm = styled.form`
+  position: relative;
+  width: 500px;
+  margin: 10px auto;
+  padding: 20px 10px;
+  border: 1px solid #eee;
+  border-radius: 5px;
+`
+export const LabelForInput = styled.label`
+  display: inline-block;
+  font-weight: 500;
+  margin: 0 0 5px 0;
+`
+export const FormErrorForRegister = styled.p`
+  position: fixed;
+  width: 300px;
+  top: 120px;
+  right: 130px;
   color: red;
   font-weight: 600;
 `
