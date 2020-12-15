@@ -2,7 +2,7 @@ const { Router } = require('express')
 const { check, validationResult } = require('express-validator')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
-const config = require('config')
+const getSecretKey = require('../utils/getJwtSecret')
 const User = require('../models/User.models')
 
 const router = Router()
@@ -86,12 +86,13 @@ router.post(
           .status(401)
           .json({ msg: 'You entered an incorrect password' })
       }
+      getSecretKey()
       const token = jwt.sign(
         {
           email: candidate.email,
           userId: candidate._id,
         },
-        config.get('jwtSecretKey'),
+        getSecretKey(),
         { expiresIn: '1h' }
       )
       return res.status(200).json({ token: `Bearer ${token}` })
