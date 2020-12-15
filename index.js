@@ -8,6 +8,8 @@ const PORT = config.get('PORT') || 5000
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
+app.use('/api/sign', require('./routers/sigh.routes'))
+
 async function serverStart() {
   try {
     await mongoose.connect(config.get('mongoUri'), {
