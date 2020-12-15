@@ -94,7 +94,7 @@ const FormMainPage = (props) => {
             error={touched.rooms && errors.rooms ? 'error' : ''}
           />
           {touched.rooms && errors.rooms && (
-            <FormError>{errors.dateIn}</FormError>
+            <FormError>{errors.rooms}</FormError>
           )}
           <Input
             width='113px'
@@ -109,7 +109,7 @@ const FormMainPage = (props) => {
             error={touched.adults && errors.adults ? 'error' : ''}
           />
           {touched.adults && errors.adults && (
-            <FormError>{errors.dateIn}</FormError>
+            <FormError>{errors.adults}</FormError>
           )}
           <Input
             width='113px'
