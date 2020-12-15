@@ -19,6 +19,7 @@
     "require-jsdoc": "off",
     "eol-last": "off",
     "no-trailing-spaces": "off",
-    "no-debugger": "off"
+    "no-debugger": "off",
+    "no-underscore-dangle": "off"
   }
 }
