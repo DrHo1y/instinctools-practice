@@ -5,9 +5,9 @@ import {
   Input,
   LabelForInput,
   LoginRegisterForm,
-} from '../../styles/styledComponents'
+} from '../../../styles/styledComponents'
 import { Formik } from 'formik'
-import { registerFormValidationSchema } from '../../validationSchemas'
+import { registerFormValidationSchema } from '../../../validationSchemas'
 
 const RegisterPage = (props) => {
   return (
@@ -22,7 +22,7 @@ const RegisterPage = (props) => {
       }}
       validateOnBlur
       onSubmit={(values) => {
-        console.log(values)
+        props.signupClick(values)
       }}
       validationSchema={registerFormValidationSchema}
     >

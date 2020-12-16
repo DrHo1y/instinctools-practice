@@ -1,2 +1,4 @@
-export const CLICK = 'CLICK'
-export const FETCH = 'FETCH'
+export const SIGN_SIGNUP = 'SIGN/SIGNUP'
+export const SIGN_SIGNIN = 'SIGN/SIGNIN'
+export const SIGN_SIGNUP_CLICK = 'SIGN/SIGNUP_CLICK'
+export const SIGN_SIGNIN_CLICK = 'SIGN/SIGNIN_CLICK'
