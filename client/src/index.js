@@ -4,7 +4,7 @@ import { createStore, compose, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import createSagaMiddleware from 'redux-saga'
 import { rootReducer } from './redux/reducers/rootReducer'
-import { sagaWatcher } from './redux/sagas'
+import { rootWatcher } from './redux/sagas/rootWatcher'
 import App from './App'
 
 const saga = createSagaMiddleware()
@@ -17,7 +17,7 @@ const store = createStore(
   )
 )
 
-saga.run(sagaWatcher)
+saga.run(rootWatcher)
 
 const app = (
   <Provider store={store}>
