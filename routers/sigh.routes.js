@@ -1,12 +1,12 @@
-const { Router } = require('express')
-const { check, validationResult } = require('express-validator')
-const jwt = require('jsonwebtoken')
-const bcrypt = require('bcryptjs')
-const getSecretKey = require('../utils/getJwtSecret')
-const authMiddleware = require('../middleware/auth.middleware')
-const User = require('../models/User.models')
+const { Router } = require('express');
+const { check, validationResult } = require('express-validator');
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
+const getSecretKey = require('../utils/getJwtSecret');
+const authMiddleware = require('../middleware/auth.middleware');
+const User = require('../models/User.models');
 
-const router = Router()
+const router = Router();
 
 router.post(
   '/register',
@@ -30,31 +30,31 @@ router.post(
   ],
   async (req, res) => {
     try {
-      const errors = validationResult(req)
+      const errors = validationResult(req);
       if (!errors.isEmpty()) {
-        return res.status(422).json(errors.array())
+        return res.status(422).json(errors.array());
       }
 
-      const candidate = await User.findOne({ email: req.body.email })
+      const candidate = await User.findOne({ email: req.body.email });
       if (candidate) {
         return res
           .status(409)
-          .json({ msg: 'User with this email already exists' })
+          .json({ msg: 'User with this email already exists' });
       }
-      const hashedPassword = await bcrypt.hash(req.body.password, 12)
+      const hashedPassword = await bcrypt.hash(req.body.password, 12);
       const user = new User({
         name: req.body.name,
         surname: req.body.surname,
         email: req.body.email,
         password: hashedPassword,
-      })
-      await user.save()
-      return res.status(201).json({ msg: 'User created' })
+      });
+      await user.save();
+      return res.status(201).json({ msg: 'User created' });
     } catch (e) {
-      return res.status(500).json({ msg: 'Server error! Try again.' })
+      return res.status(500).json({ msg: 'Server error! Try again.' });
     }
   }
-)
+);
 
 router.post(
   '/login',
@@ -70,22 +70,22 @@ router.post(
   ],
   async (req, res) => {
     try {
-      const errors = validationResult(req)
+      const errors = validationResult(req);
       if (!errors.isEmpty()) {
-        return res.status(422).json(errors.array())
+        return res.status(422).json(errors.array());
       }
-      const candidate = await User.findOne({ email: req.body.email })
+      const candidate = await User.findOne({ email: req.body.email });
       if (!candidate) {
-        return res.status(404).json({ msg: 'User not found' })
+        return res.status(404).json({ msg: 'User not found' });
       }
       const isMatch = await bcrypt.compare(
         req.body.password,
         candidate.password
-      )
+      );
       if (!isMatch) {
         return res
           .status(401)
-          .json({ msg: 'You entered an incorrect password' })
+          .json({ msg: 'You entered an incorrect password' });
       }
       const token = jwt.sign(
         {
@@ -94,7 +94,7 @@ router.post(
         },
         getSecretKey(),
         { expiresIn: '1h' }
-      )
+      );
       return res.status(200).json({
         token: `Bearer ${token}`,
         msg: 'OK',
@@ -103,16 +103,16 @@ router.post(
           id: candidate._id,
           email: candidate.email,
         },
-      })
+      });
     } catch (e) {
-      return res.status(500).json({ msg: 'Server error! Try arain.' })
+      return res.status(500).json({ msg: 'Server error! Try arain.' });
     }
   }
-)
+);
 
 router.get('/auth', authMiddleware, async (req, res) => {
   try {
-    const user = await User.findOne({ _id: req.user.userId })
+    const user = await User.findOne({ _id: req.user.userId });
     const token = jwt.sign(
       {
         email: user.email,
@@ -120,7 +120,7 @@ router.get('/auth', authMiddleware, async (req, res) => {
       },
       getSecretKey(),
       { expiresIn: '1h' }
-    )
+    );
     return res.status(200).json({
       token: `Bearer ${token}`,
       msg: 'OK',
@@ -129,10 +129,10 @@ router.get('/auth', authMiddleware, async (req, res) => {
         userId: user._id,
         email: user.email,
       },
-    })
+    });
   } catch (e) {
-    return res.status(500).json({ msg: 'Server error! Try arain.' })
+    return res.status(500).json({ msg: 'Server error! Try arain.' });
   }
-})
+});
 
-module.exports = router
+module.exports = router;

@@ -1,4 +1,4 @@
-import * as yup from 'yup'
+import * as yup from 'yup';
 
 export const searchFormValidationSchema = yup.object().shape({
   where: yup.string().required('Required field'),
@@ -40,7 +40,7 @@ export const searchFormValidationSchema = yup.object().shape({
     .max(4, 'The number of adults connot be mote then 4')
     .required('Required field'),
   children: yup.number().notRequired(),
-})
+});
 
 export const registerFormValidationSchema = yup.object().shape({
   name: yup.string().required('Required field'),
@@ -62,7 +62,7 @@ export const registerFormValidationSchema = yup.object().shape({
   confirmPassword: yup
     .string()
     .oneOf([yup.ref('password')], 'password not match'),
-})
+});
 
 export const loginFormValidationSchema = yup.object().shape({
   email: yup
@@ -73,4 +73,4 @@ export const loginFormValidationSchema = yup.object().shape({
     .string()
     .min(8, 'Password must contain at least 8 characters')
     .required('Required field'),
-})
+});

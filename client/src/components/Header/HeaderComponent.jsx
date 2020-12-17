@@ -1,9 +1,9 @@
-import { connect } from 'react-redux'
-import React from 'react'
-import { theme, Header } from '../../styles/styledComponents'
-import HeaderFirst from './HeaderFirst/HeaderFirst'
-import HeaderSecond from './HeaderSecond/HeaderSecond'
-import { signoutClickAction } from '../../redux/actions/userAction'
+import { connect } from 'react-redux';
+import React from 'react';
+import { theme, Header } from '../../styles/styledComponents';
+import HeaderFirst from './HeaderFirst/HeaderFirst';
+import HeaderSecond from './HeaderSecond/HeaderSecond';
+import { signoutClickAction } from '../../redux/actions/userAction';
 
 const HeaderComponent = (props) => {
   return (
@@ -14,10 +14,10 @@ const HeaderComponent = (props) => {
       />
       <HeaderSecond />
     </Header>
-  )
-}
-const mapStateToProps = (state) => state
+  );
+};
+const mapStateToProps = (state) => state;
 const mapDispatchToProps = {
   signoutClickAction,
-}
-export default connect(mapStateToProps, mapDispatchToProps)(HeaderComponent)
+};
+export default connect(mapStateToProps, mapDispatchToProps)(HeaderComponent);

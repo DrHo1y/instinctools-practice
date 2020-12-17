@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 import {
   HeaderWrapperElement,
   Img,
   HeaderWrapperElementTitle,
-} from '../../../styles/styledComponents'
+} from '../../../styles/styledComponents';
 
 const HeaderElement = (props) => {
   return (
@@ -11,7 +11,7 @@ const HeaderElement = (props) => {
       <Img src={props.img} />
       <HeaderWrapperElementTitle>Stays</HeaderWrapperElementTitle>
     </HeaderWrapperElement>
-  )
-}
+  );
+};
 
-export default HeaderElement
+export default HeaderElement;

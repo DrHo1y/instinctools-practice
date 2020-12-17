@@ -1,6 +1,6 @@
-import React from 'react'
-import { ContainerMainPage, MainPageText } from '../../styles/styledComponents'
-import FormMainPage from './FormMainPage'
+import React from 'react';
+import { ContainerMainPage, MainPageText } from '../../styles/styledComponents';
+import FormMainPage from './FormMainPage';
 
 const MainPage = (props) => {
   return (
@@ -13,7 +13,7 @@ const MainPage = (props) => {
       </MainPageText>
       <FormMainPage />
     </ContainerMainPage>
-  )
-}
+  );
+};
 
-export default MainPage
+export default MainPage;

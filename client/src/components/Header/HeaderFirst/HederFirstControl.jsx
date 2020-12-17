@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 import {
   HeaderWrapperFirstControlWrapper,
   Button,
-} from '../../../styles/styledComponents'
+} from '../../../styles/styledComponents';
 
 const HeaderFirstControl = (props) => {
   return (
@@ -34,7 +34,7 @@ const HeaderFirstControl = (props) => {
         </Button>
       )}
     </HeaderWrapperFirstControlWrapper>
-  )
-}
+  );
+};
 
-export default HeaderFirstControl
+export default HeaderFirstControl;

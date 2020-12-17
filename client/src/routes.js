@@ -1,9 +1,9 @@
-import React from 'react'
-import { Switch, Route, Redirect } from 'react-router-dom'
-import LoginContainer from './pages/AuthPage/LoginPage/LoginContainer'
-import RegisterContainer from './pages/AuthPage/RegisterPage/RegisterContainer'
-import UserPage from './pages/AuthPage/UserPage'
-import MainPage from './pages/MainPage/MainPage'
+import React from 'react';
+import { Switch, Route, Redirect } from 'react-router-dom';
+import LoginContainer from './pages/AuthPage/LoginPage/LoginContainer';
+import RegisterContainer from './pages/AuthPage/RegisterPage/RegisterContainer';
+import UserPage from './pages/AuthPage/UserPage';
+import MainPage from './pages/MainPage/MainPage';
 
 export const useRoutes = (isAuth) => {
   if (isAuth) {
@@ -13,7 +13,7 @@ export const useRoutes = (isAuth) => {
         <Route path='/user:id' component={UserPage} />
         <Redirect to='/' />
       </Switch>
-    )
+    );
   }
   return (
     <Switch>
@@ -22,5 +22,5 @@ export const useRoutes = (isAuth) => {
       <Route path='/register' component={RegisterContainer} exact />
       <Redirect to='/' />
     </Switch>
-  )
-}
+  );
+};
