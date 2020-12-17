@@ -14,12 +14,25 @@ const HeaderFirstControl = (props) => {
       >
         List your property
       </Button>
-      <Button color='white' style={{ marginLeft: 15 }}>
-        Regiter
-      </Button>
-      <Button color='white' style={{ marginLeft: 15 }}>
-        Sign in
-      </Button>
+      {!props.isAuth && (
+        <Button color='white' style={{ marginLeft: 15 }}>
+          Regiter
+        </Button>
+      )}
+      {!props.isAuth && (
+        <Button color='white' style={{ marginLeft: 15 }}>
+          Sign in
+        </Button>
+      )}
+      {props.isAuth && (
+        <Button
+          color='white'
+          style={{ marginLeft: 15 }}
+          onClick={() => props.signoutClick()}
+        >
+          Sign out
+        </Button>
+      )}
     </HeaderWrapperFirstControlWrapper>
   )
 }

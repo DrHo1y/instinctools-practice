@@ -7,7 +7,10 @@ const HeaderFirst = (props) => {
   return (
     <HeaderWrapperFirst>
       <HeaderFirstLogo />
-      <HeaderFirstControl />
+      <HeaderFirstControl
+        isAuth={props.isAuth}
+        signoutClick={props.signoutClick}
+      />
     </HeaderWrapperFirst>
   )
 }

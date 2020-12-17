@@ -17,3 +17,14 @@ export async function signinFetched(body) {
     return error.response.data
   }
 }
+
+export async function authFetched(token) {
+  try {
+    const response = await axios.get('/api/sign/auth', {
+      headers: { Authorization: token },
+    })
+    return response.data
+  } catch (error) {
+    return error.response.data
+  }
+}
