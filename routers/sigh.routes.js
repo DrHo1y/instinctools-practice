@@ -3,6 +3,7 @@ const { check, validationResult } = require('express-validator')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
 const getSecretKey = require('../utils/getJwtSecret')
+const authMiddleware = require('../middleware/auth.middleware')
 const User = require('../models/User.models')
 
 const router = Router()
@@ -86,7 +87,6 @@ router.post(
           .status(401)
           .json({ msg: 'You entered an incorrect password' })
       }
-      getSecretKey()
       const token = jwt.sign(
         {
           email: candidate.email,
@@ -95,11 +95,44 @@ router.post(
         getSecretKey(),
         { expiresIn: '1h' }
       )
-      return res.status(200).json({ token: `Bearer ${token}` })
+      return res.status(200).json({
+        token: `Bearer ${token}`,
+        msg: 'OK',
+        user: {
+          name: candidate.name,
+          id: candidate._id,
+          email: candidate.email,
+        },
+      })
     } catch (e) {
       return res.status(500).json({ msg: 'Server error! Try arain.' })
     }
   }
 )
+
+router.get('/auth', authMiddleware, async (req, res) => {
+  try {
+    const user = await User.findOne({ _id: req.user.userId })
+    const token = jwt.sign(
+      {
+        email: user.email,
+        userId: user._id,
+      },
+      getSecretKey(),
+      { expiresIn: '1h' }
+    )
+    return res.status(200).json({
+      token: `Bearer ${token}`,
+      msg: 'OK',
+      user: {
+        name: user.name,
+        userId: user._id,
+        email: user.email,
+      },
+    })
+  } catch (e) {
+    return res.status(500).json({ msg: 'Server error! Try arain.' })
+  }
+})
 
 module.exports = router

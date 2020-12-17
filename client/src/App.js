@@ -1,12 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { BrowserRouter } from 'react-router-dom'
-import { connect } from 'react-redux'
+import { connect, useSelector } from 'react-redux'
 import { useRoutes } from './routes'
 import { Container } from './styles/styledComponents'
 import HeaderComponent from './components/Header/HeaderComponent'
 
-function App() {
-  const routes = useRoutes()
+import { signinWithToken } from './redux/actions/userAction'
+
+function App({ signinWithToken }) {
+  const isAuth = useSelector((state) => state.user.isAuth)
+  const routes = useRoutes(isAuth)
+
+  useEffect(() => {
+    signinWithToken()
+  }, [signinWithToken])
+
   return (
     <BrowserRouter>
       <Container headerSize='110px'>
@@ -18,6 +26,8 @@ function App() {
 }
 
 const mapStateToProps = (state) => state
-const mapDispatchToProps = {}
+const mapDispatchToProps = {
+  signinWithToken,
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
