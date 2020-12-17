@@ -1,19 +1,19 @@
-import React from 'react'
+import React from 'react';
 import {
   SearchForm,
   Input,
   ButtonForForm,
   FormError,
-} from '../../styles/styledComponents'
-import { Formik } from 'formik'
-import { searchFormValidationSchema } from '../../validationSchemas'
+} from '../../styles/styledComponents';
+import { Formik } from 'formik';
+import { searchFormValidationSchema } from '../../validationSchemas';
 
 const FormMainPage = (props) => {
   const date = {
     day: new Date().getDate(),
     month: new Date().getMonth(),
     year: new Date().getFullYear(),
-  }
+  };
   return (
     <Formik
       initialValues={{
@@ -26,7 +26,7 @@ const FormMainPage = (props) => {
       }}
       validateOnBlur
       onSubmit={(values) => {
-        console.log(values)
+        console.log(values);
       }}
       validationSchema={searchFormValidationSchema}
     >
@@ -134,7 +134,7 @@ const FormMainPage = (props) => {
         </SearchForm>
       )}
     </Formik>
-  )
-}
+  );
+};
 
-export default FormMainPage
+export default FormMainPage;

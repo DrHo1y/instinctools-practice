@@ -1,5 +1,5 @@
-import { CLICK } from '../types'
+import { CLICK } from '../types';
 
 export function actionClick() {
-  return { type: CLICK }
+  return { type: CLICK };
 }

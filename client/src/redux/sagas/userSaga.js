@@ -1,51 +1,54 @@
-import { put, call, takeLatest } from 'redux-saga/effects'
-import { authFetched, signinFetched, signupFetched } from '../../api/sign'
+import { put, call, takeLatest } from 'redux-saga/effects';
+import { authFetched, signinFetched, signupFetched } from '../../api/sign';
 import {
   getItemInLocalStorage,
   removeItemInLocalStorage,
   setItemToLocalStorage,
-} from '../../utils/localstorage'
+} from '../../utils/localstorage';
 import {
   signinAction,
+  signinErrorAction,
   signoutAction,
   signupAction,
-} from '../actions/userAction'
+} from '../actions/userAction';
 import {
   SIGN_SIGNIN_CLICK,
   SIGN_SIGNIN_WITH_TOKEN,
   SIGN_SIGNOUT_CLICK,
   SIGN_SIGNUP_CLICK,
-} from '../types'
+} from '../types';
 
 export function* signWatcher() {
-  yield takeLatest(SIGN_SIGNUP_CLICK, signupWorker)
-  yield takeLatest(SIGN_SIGNIN_CLICK, signinWorker)
-  yield takeLatest(SIGN_SIGNIN_WITH_TOKEN, signinWithTokenWorker)
-  yield takeLatest(SIGN_SIGNOUT_CLICK, signoutWorker)
+  yield takeLatest(SIGN_SIGNUP_CLICK, signupWorker);
+  yield takeLatest(SIGN_SIGNIN_CLICK, signinWorker);
+  yield takeLatest(SIGN_SIGNIN_WITH_TOKEN, signinWithTokenWorker);
+  yield takeLatest(SIGN_SIGNOUT_CLICK, signoutWorker);
 }
 
 function* signupWorker({ form }) {
-  const payload = yield call(signupFetched, form)
-  yield put(signupAction(payload))
+  const payload = yield call(signupFetched, form);
+  yield put(signupAction(payload));
 }
 function* signinWorker({ form }) {
-  const payload = yield call(signinFetched, form)
+  const payload = yield call(signinFetched, form);
   if (payload.token) {
-    yield call(setItemToLocalStorage, 'token', payload.token)
+    yield call(setItemToLocalStorage, 'token', payload.token);
+    yield put(signinAction(payload));
+  } else {
+    yield put(signinErrorAction(payload));
   }
-  yield put(signinAction(payload))
 }
 function* signoutWorker() {
-  yield call(removeItemInLocalStorage, 'token')
-  yield put(signoutAction())
+  yield call(removeItemInLocalStorage, 'token');
+  yield put(signoutAction());
 }
 function* signinWithTokenWorker() {
-  const token = yield call(getItemInLocalStorage, 'token')
+  const token = yield call(getItemInLocalStorage, 'token');
   if (token) {
-    const payload = yield call(authFetched, token)
+    const payload = yield call(authFetched, token);
     if (payload.token) {
-      yield call(setItemToLocalStorage, 'token', payload.token)
+      yield call(setItemToLocalStorage, 'token', payload.token);
     }
-    yield put(signinAction(payload))
+    yield put(signinAction(payload));
   }
 }

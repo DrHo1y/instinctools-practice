@@ -1,13 +1,13 @@
-import React from 'react'
+import React from 'react';
 import {
   ButtonForForm,
   FormErrorForRegister,
   Input,
   LabelForInput,
   LoginRegisterForm,
-} from '../../../styles/styledComponents'
-import { Formik } from 'formik'
-import { registerFormValidationSchema } from '../../../validationSchemas'
+} from '../../../styles/styledComponents';
+import { Formik } from 'formik';
+import { registerFormValidationSchema } from '../../../validationSchemas';
 
 const RegisterPage = (props) => {
   return (
@@ -22,7 +22,7 @@ const RegisterPage = (props) => {
       }}
       validateOnBlur
       onSubmit={(values) => {
-        props.signupClick(values)
+        props.signupClick(values);
       }}
       validationSchema={registerFormValidationSchema}
     >
@@ -149,7 +149,7 @@ const RegisterPage = (props) => {
         </LoginRegisterForm>
       )}
     </Formik>
-  )
-}
+  );
+};
 
-export default RegisterPage
+export default RegisterPage;

@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 import {
   HeaderWrapperFirstLogoWrapper,
   LogoSpan,
   Logo,
-} from '../../../styles/styledComponents'
+} from '../../../styles/styledComponents';
 
 const HeaderFirstLogo = (props) => {
   return (
@@ -12,7 +12,7 @@ const HeaderFirstLogo = (props) => {
         Booker.<LogoSpan>com</LogoSpan>
       </Logo>
     </HeaderWrapperFirstLogoWrapper>
-  )
-}
+  );
+};
 
-export default HeaderFirstLogo
+export default HeaderFirstLogo;

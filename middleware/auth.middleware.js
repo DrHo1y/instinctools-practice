@@ -1,18 +1,18 @@
-const jwtDecode = require('jwt-decode')
+const jwtDecode = require('jwt-decode');
 
 module.exports = (req, res, next) => {
   if (req.method === 'OPTIONS') {
-    return next()
+    return next();
   }
   try {
-    const token = req.headers.authorization.split(' ')[1]
+    const token = req.headers.authorization.split(' ')[1];
     if (!token) {
-      return res.status(401).json({ msg: 'Auth error!' })
+      return res.status(401).json({ msg: 'Auth error!' });
     }
-    const decoded = jwtDecode(token)
-    req.user = decoded
-    next()
+    const decoded = jwtDecode(token);
+    req.user = decoded;
+    next();
   } catch (e) {
-    return res.status(401).json({ msg: 'Auth error!' })
+    return res.status(401).json({ msg: 'Auth error!' });
   }
-}
+};
