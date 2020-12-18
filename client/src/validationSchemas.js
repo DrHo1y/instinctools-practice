@@ -45,6 +45,7 @@ export const searchFormValidationSchema = yup.object().shape({
 export const registerFormValidationSchema = yup.object().shape({
   name: yup.string().required('Required field'),
   surname: yup.string().required('Reqired field'),
+  phoneNumber: yup.string().required('Required field'),
   email: yup
     .string()
     .email('Please enter your email')

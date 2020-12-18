@@ -1,4 +1,4 @@
-import { SIGN_SIGNIN, SIGN_SIGNIN_ERROR, SIGN_SIGNUP } from '../types';
+import { PARTNER_SIGNUP, SIGN_SIGNIN, SIGN_SIGNIN_ERROR, SIGN_SIGNUP } from '../types';
 
 const initialState = {
   languge: 'EN',
@@ -14,6 +14,8 @@ export const appReducer = (state = initialState, action) => {
     case SIGN_SIGNIN:
       return { ...state, msg: action.payload.msg };
     case SIGN_SIGNIN_ERROR:
+      return { ...state, msg: action.payload.msg };
+    case PARTNER_SIGNUP:
       return { ...state, msg: action.payload.msg };
     default:
       return state;

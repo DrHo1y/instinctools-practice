@@ -9,7 +9,9 @@ const HeaderComponent = (props) => {
   return (
     <Header color={theme.primaryColor}>
       <HeaderFirst
+        userName={props.user.currentUser.name}
         isAuth={props.user.isAuth}
+        isPartner={props.user.isPartner}
         signoutClick={props.signoutClickAction}
       />
       <HeaderSecond />
