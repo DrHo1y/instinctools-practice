@@ -9,6 +9,7 @@ const HeaderComponent = (props) => {
   return (
     <Header color={theme.primaryColor}>
       <HeaderFirst
+        id={props.user.currentUser.userId}
         userName={props.user.currentUser.name}
         isAuth={props.user.isAuth}
         isPartner={props.user.isPartner}

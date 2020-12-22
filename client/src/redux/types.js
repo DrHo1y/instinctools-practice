@@ -1,3 +1,7 @@
+export const INITIAL = 'INITIAL';
+export const SHOW_LOADER = 'SHOW_LOADER';
+export const HIDE_LOADER = 'HIDE_LOADER';
+
 export const SIGN_SIGNUP = 'SIGN/SIGNUP';
 export const SIGN_SIGNIN = 'SIGN/SIGNIN';
 export const SIGN_SIGNOUT = 'SIGN/SIGNOUT';

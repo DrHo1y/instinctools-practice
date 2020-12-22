@@ -9,7 +9,7 @@ const HeaderElement = (props) => {
   return (
     <HeaderWrapperElement active={props.active}>
       <Img src={props.img} />
-      <HeaderWrapperElementTitle>Stays</HeaderWrapperElementTitle>
+      <HeaderWrapperElementTitle>{props.name}</HeaderWrapperElementTitle>
     </HeaderWrapperElement>
   );
 };
