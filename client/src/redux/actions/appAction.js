@@ -1,5 +1,6 @@
-import { CLICK } from '../types';
+import { HIDE_LOADER, INITIAL, SHOW_LOADER } from '../types';
 
-export function actionClick() {
-  return { type: CLICK };
-}
+export const initialApp = () => ({ type: INITIAL });
+
+export const showLoaded = () => ({ type: SHOW_LOADER });
+export const hideLoader = () => ({ type: HIDE_LOADER });

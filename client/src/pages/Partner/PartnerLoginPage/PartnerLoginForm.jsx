@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import { Formik } from 'formik';
 import { loginFormValidationSchema } from '../../../validationSchemas';
 import {
@@ -6,10 +7,12 @@ import {
   FormErrorForRegister,
   Input,
   LabelForInput,
+  Link,
   LoginRegisterForm,
 } from '../../../styles/styledComponents';
 
 const PartnerLoginForm = (props) => {
+  const history = useHistory();
   return (
     <Formik
       initialValues={{
@@ -65,6 +68,7 @@ const PartnerLoginForm = (props) => {
           >
             Login
           </ButtonForForm>
+          <Link onClick={() => history.push('/partner/register')}>Register new partner</Link>
         </LoginRegisterForm>
       )}
     </Formik>

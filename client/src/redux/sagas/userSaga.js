@@ -1,4 +1,4 @@
-import { put, call, takeLatest } from 'redux-saga/effects';
+import { put, call, takeLatest, takeEvery } from 'redux-saga/effects';
 import {
   authFetched,
   partnerSigninFetched,
@@ -11,6 +11,7 @@ import {
   removeItemInLocalStorage,
   setItemToLocalStorage,
 } from '../../utils/localstorage';
+import { hideLoader, showLoaded } from '../actions/appAction';
 import {
   partnerSigninAction,
   signinAction,
@@ -19,6 +20,7 @@ import {
   signupAction,
 } from '../actions/userAction';
 import {
+  INITIAL,
   PARTNER_SIGNIN_CLICK,
   PARTNER_SIGNUP_CLICK,
   SIGN_SIGNIN_CLICK,
@@ -28,12 +30,21 @@ import {
 } from '../types';
 
 export function* signWatcher() {
+  yield takeEvery(INITIAL, initialWorker);
   yield takeLatest(SIGN_SIGNUP_CLICK, signupWorker);
   yield takeLatest(SIGN_SIGNIN_CLICK, signinWorker);
   yield takeLatest(SIGN_SIGNIN_WITH_TOKEN, signinWithTokenWorker);
   yield takeLatest(SIGN_SIGNOUT_CLICK, signoutWorker);
   yield takeLatest(PARTNER_SIGNUP_CLICK, partnerSignupWorker);
   yield takeLatest(PARTNER_SIGNIN_CLICK, partnerSigninWorker);
+}
+
+function* initialWorker() {
+  yield put(showLoaded());
+  const token = yield call(getItemInLocalStorage, 'token');
+  if (!token) {
+    yield put(hideLoader());
+  }
 }
 
 function* signupWorker({ form }) {
@@ -54,8 +65,10 @@ function* signoutWorker() {
   yield put(signoutAction());
 }
 function* signinWithTokenWorker() {
+  // try
   const token = yield call(getItemInLocalStorage, 'token');
   if (token) {
+    yield put(showLoaded());
     const payload = yield call(authFetched, token);
     if (payload.token) {
       yield call(setItemToLocalStorage, 'token', payload.token);
@@ -64,6 +77,7 @@ function* signinWithTokenWorker() {
       } else {
         yield put(signinAction(payload));
       }
+      yield put(hideLoader());
     }
   }
 }

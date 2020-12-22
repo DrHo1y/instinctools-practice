@@ -8,6 +8,7 @@ const HeaderFirst = (props) => {
     <HeaderWrapperFirst>
       <HeaderFirstLogo />
       <HeaderFirstControl
+        id={props.id}
         userName={props.userName}
         isAuth={props.isAuth}
         isPartner={props.isPartner}

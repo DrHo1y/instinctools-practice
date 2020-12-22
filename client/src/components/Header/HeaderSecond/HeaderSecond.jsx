@@ -7,8 +7,8 @@ import HeaderElement from './HeaderElement';
 const HeaderSecond = (props) => {
   return (
     <HeaderWrapperSecond>
-      <HeaderElement img={home} active />
-      <HeaderElement img={stays} />
+      <HeaderElement img={home} name={`Home`} active />
+      <HeaderElement img={stays} name={`Stays`} />
     </HeaderWrapperSecond>
   );
 };

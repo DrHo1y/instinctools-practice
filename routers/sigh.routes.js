@@ -82,7 +82,7 @@ router.post(
         msg: 'OK',
         user: {
           name: candidate.name,
-          id: candidate._id,
+          userId: candidate._id,
           email: candidate.email,
         },
       });
@@ -169,7 +169,7 @@ router.post(
         isPartner: true,
         user: {
           name: candidate.name,
-          id: candidate._id,
+          userId: candidate._id,
           email: candidate.email,
         },
       });

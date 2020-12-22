@@ -86,9 +86,7 @@ export const HeaderWrapperElement = styled.div`
     }
   }
 `;
-const img = ({ src, alt }) => (
-  <img src={src} alt={alt} style={{ width: 24, height: 24 }} />
-);
+const img = ({ src, alt }) => <img src={src} alt={alt} style={{ width: 24, height: 24 }} />;
 export const Img = styled(img)`
   width: 24px;
   height: 24px;
@@ -186,4 +184,44 @@ export const FormErrorForRegister = styled.p`
   right: 130px;
   color: red;
   font-weight: 600;
+`;
+export const Link = styled.p`
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 20px;
+`;
+
+export const DashboardContainer = styled.div`
+  display: block;
+  height: 100%;
+`;
+
+export const DashboardNavContainer = styled.div`
+  display: block;
+  width: 100%;
+  height: 50px;
+  padding: 13px 0 0 0;
+  border-bottom: 1px solid #ddd;
+`;
+
+export const DashboardNavMenu = styled.ul`
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+`;
+export const DashboadrNavItem = styled.li`
+  height: 100%;
+  line-height: 24px;
+  margin-right: 20px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+
+  &:hover {
+    border-bottom: 2px solid black;
+  }
 `;
