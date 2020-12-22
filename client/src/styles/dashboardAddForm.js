@@ -10,6 +10,7 @@ export const Form = styled.form`
 export const Group = styled.div`
   height: 100%;
   width: 100%;
+  padding: 0 10px;
 `;
 export const Title = styled.h2`
   display: block;
@@ -17,11 +18,18 @@ export const Title = styled.h2`
   font-size: 22px;
   font-weight: 500;
 `;
+export const SubTitle = styled.h4`
+  display: block;
+  margin: 0 0 10px 0;
+  font-size: 18px;
+  font-weight: 500;
+`;
 export const Label = styled.label`
   display: ${(props) => props.inline || 'block'};
   line-height: 40px;
   font-size: 16px;
   font-weight: 400;
+  margin: 0 10px 0 0;
 `;
 export const Input = styled.input`
   height: 40px;
@@ -30,6 +38,18 @@ export const Input = styled.input`
   padding: 0 10px;
   border-radius: 5px;
   border: ${(props) => (props.error ? '2px solid #eb4034' : '1px solid #ddd')};
+`;
+export const Radio = styled.input`
+  height: 16px;
+  width: 16px;
+  display: inline-block;
+  margin: 0 10px 0 0;
+`;
+export const Checkbox = styled.input`
+  height: 16px;
+  width: 16px;
+  display: inline-block;
+  margin: 0 10px 0 0;
 `;
 export const Textarea = styled.textarea`
   height: 80px;
@@ -46,7 +66,7 @@ export const Select = styled.select`
   margin: 0 0 10px 0;
   padding: 0 10px;
   border-radius: 5px;
-  border: 1px solid #ddd;
+  border: ${(props) => (props.error ? '2px solid #eb4034' : '1px solid #ddd')};
 `;
 export const Option = styled.option`
   widht: 100%;

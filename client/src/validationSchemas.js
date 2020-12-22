@@ -60,9 +60,11 @@ export const loginFormValidationSchema = yup.object().shape({
 
 export const addHotelValidationSchema = yup.object().shape({
   title: yup.string().required('Required field'),
-  country: yup.string().required('Required field'),
-  city: yup.string().required('Required field'),
+  country: yup.string().required('required field'),
+  city: yup.string().required('required field'),
   address: yup.string().required('Required field'),
-  index: yup.string().required('Required field'),
+  idx: yup.string().required('Required field'),
   description: yup.string().required('Required field'),
+  minPrice: yup.number().required('required field'),
+  maxPrice: yup.number().required('required field'),
 });

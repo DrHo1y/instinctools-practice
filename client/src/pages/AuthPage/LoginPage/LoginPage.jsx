@@ -1,13 +1,13 @@
-import React from 'react'
-import { Formik } from 'formik'
-import { loginFormValidationSchema } from '../../../validationSchemas'
+import React from 'react';
+import { Formik } from 'formik';
+import { loginFormValidationSchema } from '../../../validationSchemas';
 import {
   ButtonForForm,
   FormErrorForRegister,
   Input,
   LabelForInput,
   LoginRegisterForm,
-} from '../../../styles/styledComponents'
+} from '../../../styles/styledComponents';
 
 const LoginPage = (props) => {
   return (
@@ -18,20 +18,12 @@ const LoginPage = (props) => {
       }}
       validateOnBlur
       onSubmit={(values) => {
-        props.signinClick(values)
+        console.log(values);
+        // props.signinClick(values);
       }}
       validationSchema={loginFormValidationSchema}
     >
-      {({
-        values,
-        errors,
-        touched,
-        dirty,
-        handleSubmit,
-        handleChange,
-        handleBlur,
-        isValid,
-      }) => (
+      {({ values, errors, touched, dirty, handleSubmit, handleChange, handleBlur, isValid }) => (
         <LoginRegisterForm>
           <LabelForInput>Email</LabelForInput>
           <Input
@@ -77,7 +69,7 @@ const LoginPage = (props) => {
         </LoginRegisterForm>
       )}
     </Formik>
-  )
-}
+  );
+};
 
-export default LoginPage
+export default LoginPage;
