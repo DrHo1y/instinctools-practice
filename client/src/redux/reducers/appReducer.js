@@ -1,5 +1,7 @@
 import {
+  ERROR,
   HIDE_LOADER,
+  LOCATION_LOAD_CITY,
   PARTNER_SIGNUP,
   SHOW_LOADER,
   SIGN_SIGNIN,
@@ -12,6 +14,7 @@ const initialState = {
   currency: 'USD',
   loading: true,
   msg: '',
+  error: '',
 };
 
 export const appReducer = (state = initialState, action) => {
@@ -20,6 +23,10 @@ export const appReducer = (state = initialState, action) => {
       return { ...state, loading: true };
     case HIDE_LOADER:
       return { ...state, loading: false };
+    case ERROR:
+      return { ...state, error: action.payload.msg };
+    case LOCATION_LOAD_CITY:
+      return { ...state, msg: action.payload.msg };
     case SIGN_SIGNUP:
       return { ...state, msg: action.payload.msg };
     case SIGN_SIGNIN:
