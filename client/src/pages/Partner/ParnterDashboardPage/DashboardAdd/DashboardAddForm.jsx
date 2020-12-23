@@ -44,7 +44,6 @@ const DashboardAddForm = (props) => {
       }}
       validateOnBlur
       onSubmit={(values) => {
-        console.log(values);
         props.createClick(values);
       }}
       validationSchema={addHotelValidationSchema}
