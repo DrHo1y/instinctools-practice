@@ -21,6 +21,7 @@ const DashboardAddForm = (props) => {
     <Formik
       initialValues={{
         title: '',
+        facilityType: '',
         country: '',
         city: '',
         address: '',
@@ -44,6 +45,7 @@ const DashboardAddForm = (props) => {
       validateOnBlur
       onSubmit={(values) => {
         console.log(values);
+        props.createClick(values);
       }}
       validationSchema={addHotelValidationSchema}
     >
@@ -61,6 +63,19 @@ const DashboardAddForm = (props) => {
               onBlur={handleBlur}
               error={errors.title && touched.title ? 'error' : ''}
             />
+            <Label htmlFor='facilityType'>Facility type</Label>
+            <Select
+              id='facilityType'
+              name='facilityType'
+              value={values.facilityType}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              error={errors.facilityType && touched.facilityType ? 'error' : ''}
+            >
+              <Option>Select</Option>
+              <Option>Hotel</Option>
+              <Option>Apartment</Option>
+            </Select>
             <Label htmlFor='country'>Country</Label>
             <Select
               id='country'
@@ -82,9 +97,9 @@ const DashboardAddForm = (props) => {
               onBlur={handleBlur}
               error={errors.city && touched.city ? 'error' : ''}
             >
-              <Option>Selecr</Option>
-              <Option>Minsk</Option>
-              <Option>Grodno</Option>
+              {props.cities.map((city) => (
+                <Option key={city._id}>{city.name}</Option>
+              ))}
             </Select>
             <Label htmlFor='address'>Address</Label>
             <Input

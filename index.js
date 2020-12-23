@@ -9,6 +9,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use('/api/sign', require('./routers/sigh.routes'));
+app.use('/api/location', require('./routers/location.routes'));
+app.use('/api/facility', require('./routers/facility.routes'));
 
 async function serverStart() {
   try {
