@@ -225,3 +225,22 @@ export const DashboadrNavItem = styled.li`
     border-bottom: 2px solid black;
   }
 `;
+
+export const DashboatdTable = styled.div`
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-auto-rows: 100px;
+  grid-gap: 10px;
+  margin: 10px 0;
+`;
+export const DashboatdTableItem = styled.div`
+  width: 100%;
+  height: 100%;
+  display: block;
+  padding: 10px;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  cursor: pointer;
+`;

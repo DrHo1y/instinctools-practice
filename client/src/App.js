@@ -17,7 +17,7 @@ function App(props) {
     signinWithToken();
   }, [signinWithToken]);
   const authConf = useSelector((state) => ({
-    loading: state.app.loading,
+    loading: state.app.globalLoading,
     isAuth: state.user.isAuth,
     isPartner: state.user.isPartner,
   }));

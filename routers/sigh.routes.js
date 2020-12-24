@@ -127,7 +127,7 @@ router.post(
       await partner.save();
       return res.status(201).json({ msg: 'Partner created' });
     } catch (e) {
-      return res.status(500).json({ msg: 'Server error! Try again.' });
+      return res.status(500).json({ msg: 'Server error! Try again.', error: e });
     }
   }
 );
