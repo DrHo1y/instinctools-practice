@@ -44,5 +44,13 @@ router.post('/add', authMiddleware, async (req, res) => {
     return res.status(500).json({ msg: `Server error! Try again.${e}` });
   }
 });
+router.get('/all', authMiddleware, async (req, res) => {
+  try {
+    const hotels = await Facility.find({ userId: req.user.userId });
+    return res.status(200).json({ msg: 'Success', data: hotels });
+  } catch (e) {
+    return res.status(500).json({ msg: 'Server error! Try again.' });
+  }
+});
 
 module.exports = router;
