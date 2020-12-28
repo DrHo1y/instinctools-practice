@@ -17,7 +17,7 @@ const PartnerDashboardPage = (props) => {
 };
 
 PartnerDashboardPage.propTypes = {
-  facilities: PropTypes.array,
+  facilities: PropTypes.array.isRequired,
 };
 
 export default PartnerDashboardPage;

@@ -21,7 +21,7 @@ PartnerLoginContainer.propTypes = {
   user: PropTypes.object,
   history: PropTypes.object,
   match: PropTypes.object,
-  partnerSigninClickAction: PropTypes.func,
+  partnerSigninClickAction: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(PartnerLoginContainer);

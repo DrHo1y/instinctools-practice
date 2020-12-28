@@ -22,7 +22,7 @@ RegisterContainer.propTypes = {
   user: PropTypes.object,
   history: PropTypes.object,
   match: PropTypes.object,
-  signupClickAction: PropTypes.func,
+  signupClickAction: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(RegisterContainer);

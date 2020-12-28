@@ -24,13 +24,13 @@ const mapDispatchToProps = {
 
 DashboartAddContainer.propTypes = {
   app: PropTypes.object,
-  location: PropTypes.object,
+  location: PropTypes.object.isRequired,
   partner: PropTypes.object,
   user: PropTypes.object,
   history: PropTypes.object,
   match: PropTypes.object,
-  createFacilityClickAction: PropTypes.func,
-  loadingCityAction: PropTypes.func,
+  createFacilityClickAction: PropTypes.func.isRequired,
+  loadingCityAction: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(DashboartAddContainer);

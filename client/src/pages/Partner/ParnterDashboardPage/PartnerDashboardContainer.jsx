@@ -23,13 +23,13 @@ const mapDispatchToProps = {
 };
 
 PartnerDashboardContainer.propTypes = {
-  app: PropTypes.object,
+  app: PropTypes.object.isRequired,
   location: PropTypes.object,
-  partner: PropTypes.object,
+  partner: PropTypes.object.isRequired,
   user: PropTypes.object,
   history: PropTypes.object,
   match: PropTypes.object,
-  getFacilityForPartnerLoadingAction: PropTypes.func,
+  getFacilityForPartnerLoadingAction: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(PartnerDashboardContainer);

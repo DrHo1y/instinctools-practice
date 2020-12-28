@@ -21,7 +21,7 @@ LoginContainer.propTypes = {
   user: PropTypes.object,
   history: PropTypes.object,
   match: PropTypes.object,
-  signinClickAction: PropTypes.func,
+  signinClickAction: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginContainer);

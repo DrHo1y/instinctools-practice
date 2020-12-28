@@ -20,11 +20,11 @@ const HeaderFirst = (props) => {
 };
 
 HeaderFirst.propTypes = {
-  id: PropTypes.string,
-  userName: PropTypes.string,
-  isAuth: PropTypes.bool,
-  isPartner: PropTypes.bool,
-  signoutClick: PropTypes.func,
+  id: PropTypes.string.isRequired,
+  userName: PropTypes.string.isRequired,
+  isAuth: PropTypes.bool.isRequired,
+  isPartner: PropTypes.bool.isRequired,
+  signoutClick: PropTypes.func.isRequired,
 };
 
 export default HeaderFirst;

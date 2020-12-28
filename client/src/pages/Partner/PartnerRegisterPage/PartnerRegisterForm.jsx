@@ -159,7 +159,7 @@ const PartnerRegisterForm = (props) => {
 };
 
 PartnerRegisterForm.propTypes = {
-  signupClick: PropTypes.func,
+  signupClick: PropTypes.func.isRequired,
 };
 
 export default PartnerRegisterForm;

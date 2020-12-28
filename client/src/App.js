@@ -45,12 +45,12 @@ const mapDispatchToProps = {
 };
 
 App.propTypes = {
-  app: PropTypes.object,
+  app: PropTypes.object.isRequired,
   location: PropTypes.object,
-  user: PropTypes.object,
+  user: PropTypes.object.isRequired,
   partner: PropTypes.object,
-  initialApp: PropTypes.func,
-  signinWithToken: PropTypes.func,
+  initialApp: PropTypes.func.isRequired,
+  signinWithToken: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

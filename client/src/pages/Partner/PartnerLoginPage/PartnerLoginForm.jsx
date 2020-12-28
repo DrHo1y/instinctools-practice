@@ -77,7 +77,7 @@ const PartnerLoginForm = (props) => {
 };
 
 PartnerLoginForm.propTypes = {
-  signinClick: PropTypes.func,
+  signinClick: PropTypes.func.isRequired,
 };
 
 export default PartnerLoginForm;

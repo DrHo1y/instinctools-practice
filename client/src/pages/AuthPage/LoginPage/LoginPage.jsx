@@ -73,7 +73,7 @@ const LoginPage = (props) => {
   );
 };
 LoginPage.propTypes = {
-  signinClick: PropTypes.func,
+  signinClick: PropTypes.func.isRequired,
 };
 
 export default LoginPage;

@@ -17,7 +17,7 @@ const DashboardTable = (props) => {
 };
 
 DashboardTable.propTypes = {
-  facilities: PropTypes.array,
+  facilities: PropTypes.array.isRequired,
 };
 
 export default DashboardTable;

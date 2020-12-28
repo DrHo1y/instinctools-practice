@@ -139,7 +139,7 @@ const RegisterPage = (props) => {
 };
 
 RegisterPage.propTypes = {
-  signupClick: PropTypes.func,
+  signupClick: PropTypes.func.isRequired,
 };
 
 export default RegisterPage;

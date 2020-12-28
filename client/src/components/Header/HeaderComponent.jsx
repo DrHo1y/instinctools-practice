@@ -28,8 +28,8 @@ const mapDispatchToProps = {
 HeaderComponent.propTypes = {
   app: PropTypes.object,
   location: PropTypes.object,
-  user: PropTypes.object,
+  user: PropTypes.object.isRequired,
   partner: PropTypes.object,
-  signoutClickAction: PropTypes.func,
+  signoutClickAction: PropTypes.func.isRequired,
 };
 export default connect(mapStateToProps, mapDispatchToProps)(HeaderComponent);

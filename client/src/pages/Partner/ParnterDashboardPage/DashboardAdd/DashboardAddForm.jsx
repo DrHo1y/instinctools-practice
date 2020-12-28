@@ -338,8 +338,8 @@ const DashboardAddForm = (props) => {
 };
 
 DashboardAddForm.propTypes = {
-  cities: PropTypes.array,
-  createClick: PropTypes.func,
+  cities: PropTypes.array.isRequired,
+  createClick: PropTypes.func.isRequired,
 };
 
 export default DashboardAddForm;

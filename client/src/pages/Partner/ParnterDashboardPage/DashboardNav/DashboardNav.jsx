@@ -15,8 +15,8 @@ const DashboardNav = (props) => {
 };
 
 DashboardNav.propTypes = {
-  add: PropTypes.string,
-  calendar: PropTypes.string,
+  add: PropTypes.string.isRequired,
+  calendar: PropTypes.string.isRequired,
 };
 
 export default DashboardNav;

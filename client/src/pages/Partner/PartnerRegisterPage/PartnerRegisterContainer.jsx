@@ -21,7 +21,7 @@ PartnerRegisterContainer.propTypes = {
   user: PropTypes.object,
   history: PropTypes.object,
   match: PropTypes.object,
-  partnerSignupClickAction: PropTypes.func,
+  partnerSignupClickAction: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(PartnerRegisterContainer);

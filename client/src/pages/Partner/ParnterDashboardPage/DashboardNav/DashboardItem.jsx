@@ -14,9 +14,9 @@ const DashboardItem = (props) => {
 };
 
 DashboardItem.propTypes = {
-  img: PropTypes.string,
-  text: PropTypes.string,
-  path: PropTypes.string,
+  img: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  path: PropTypes.string.isRequired,
 };
 
 export default DashboardItem;
