@@ -65,7 +65,6 @@ function* signoutWorker() {
   yield put(signoutAction());
 }
 function* signinWithTokenWorker() {
-  // try
   const token = yield call(getItemInLocalStorage, 'token');
   if (token) {
     yield put(showLoaded());
