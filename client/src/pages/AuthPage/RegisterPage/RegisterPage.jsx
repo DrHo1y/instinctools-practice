@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   ButtonForForm,
   FormErrorForRegister,
@@ -26,16 +27,7 @@ const RegisterPage = (props) => {
       }}
       validationSchema={registerFormValidationSchema}
     >
-      {({
-        values,
-        errors,
-        touched,
-        handleBlur,
-        handleChange,
-        isValid,
-        handleSubmit,
-        dirty,
-      }) => (
+      {({ values, errors, touched, handleBlur, handleChange, isValid, handleSubmit, dirty }) => (
         <LoginRegisterForm>
           <LabelForInput htmlFor={`name`}>Name</LabelForInput>
           <Input
@@ -115,9 +107,7 @@ const RegisterPage = (props) => {
           {touched.password && errors.password && (
             <FormErrorForRegister>{errors.password}</FormErrorForRegister>
           )}
-          <LabelForInput htmlFor={`confirmPassword`}>
-            Confirm password
-          </LabelForInput>
+          <LabelForInput htmlFor={`confirmPassword`}>Confirm password</LabelForInput>
           <Input
             width={`100%`}
             height={`40px`}
@@ -128,14 +118,10 @@ const RegisterPage = (props) => {
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.confirmPassword}
-            error={
-              touched.confirmPassword && errors.confirmPassword ? 'error' : ''
-            }
+            error={touched.confirmPassword && errors.confirmPassword ? 'error' : ''}
           />
           {touched.confirmPassword && errors.confirmPassword && (
-            <FormErrorForRegister>
-              {errors.confirmPassword}
-            </FormErrorForRegister>
+            <FormErrorForRegister>{errors.confirmPassword}</FormErrorForRegister>
           )}
           <ButtonForForm
             width={`100%`}
@@ -150,6 +136,10 @@ const RegisterPage = (props) => {
       )}
     </Formik>
   );
+};
+
+RegisterPage.propTypes = {
+  signupClick: PropTypes.func,
 };
 
 export default RegisterPage;

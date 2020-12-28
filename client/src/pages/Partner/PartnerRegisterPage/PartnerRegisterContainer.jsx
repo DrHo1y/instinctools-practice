@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import PartnerRegisterForm from './PartnerRegisterForm';
 
@@ -13,7 +14,14 @@ const mapDispatchToProps = {
   partnerSignupClickAction,
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(PartnerRegisterContainer);
+PartnerRegisterContainer.propTypes = {
+  app: PropTypes.object,
+  location: PropTypes.object,
+  partner: PropTypes.object,
+  user: PropTypes.object,
+  history: PropTypes.object,
+  match: PropTypes.object,
+  partnerSignupClickAction: PropTypes.func,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(PartnerRegisterContainer);

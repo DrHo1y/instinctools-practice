@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Formik } from 'formik';
 import { loginFormValidationSchema } from '../../../validationSchemas';
 import {
@@ -19,7 +20,7 @@ const LoginPage = (props) => {
       validateOnBlur
       onSubmit={(values) => {
         console.log(values);
-        // props.signinClick(values);
+        props.signinClick(values);
       }}
       validationSchema={loginFormValidationSchema}
     >
@@ -70,6 +71,9 @@ const LoginPage = (props) => {
       )}
     </Formik>
   );
+};
+LoginPage.propTypes = {
+  signinClick: PropTypes.func,
 };
 
 export default LoginPage;

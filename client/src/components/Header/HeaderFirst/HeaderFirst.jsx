@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import HeaderFirstLogo from './HeaderFIrstLogo';
 import { HeaderWrapperFirst } from '../../../styles/styledComponents';
 import HeaderFirstControl from './HederFirstControl';
@@ -16,6 +17,14 @@ const HeaderFirst = (props) => {
       />
     </HeaderWrapperFirst>
   );
+};
+
+HeaderFirst.propTypes = {
+  id: PropTypes.string,
+  userName: PropTypes.string,
+  isAuth: PropTypes.bool,
+  isPartner: PropTypes.bool,
+  signoutClick: PropTypes.func,
 };
 
 export default HeaderFirst;

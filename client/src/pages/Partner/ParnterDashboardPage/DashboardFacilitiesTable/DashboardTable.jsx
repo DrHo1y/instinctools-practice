@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { DashboatdTable, DashboatdTableItem } from '../../../../styles/styledComponents';
 
 const DashboardTable = (props) => {
@@ -14,4 +15,9 @@ const DashboardTable = (props) => {
     </DashboatdTable>
   );
 };
+
+DashboardTable.propTypes = {
+  facilities: PropTypes.array,
+};
+
 export default DashboardTable;

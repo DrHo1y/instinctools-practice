@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import DashboardAddForm from './DashboardAddForm';
 
@@ -19,6 +20,17 @@ const mapStateToProps = (state) => state;
 const mapDispatchToProps = {
   createFacilityClickAction,
   loadingCityAction,
+};
+
+DashboartAddContainer.propTypes = {
+  app: PropTypes.object,
+  location: PropTypes.object,
+  partner: PropTypes.object,
+  user: PropTypes.object,
+  history: PropTypes.object,
+  match: PropTypes.object,
+  createFacilityClickAction: PropTypes.func,
+  loadingCityAction: PropTypes.func,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(DashboartAddContainer);
