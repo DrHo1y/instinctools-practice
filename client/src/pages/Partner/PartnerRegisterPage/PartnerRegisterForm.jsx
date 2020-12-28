@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Formik } from 'formik';
 import {
   ButtonForForm,
@@ -28,16 +29,7 @@ const PartnerRegisterForm = (props) => {
       }}
       validationSchema={registerFormValidationSchema}
     >
-      {({
-        values,
-        errors,
-        dirty,
-        touched,
-        isValid,
-        handleSubmit,
-        handleChange,
-        handleBlur,
-      }) => (
+      {({ values, errors, dirty, touched, isValid, handleSubmit, handleChange, handleBlur }) => (
         <LoginRegisterForm>
           <LabelForInput htmlFor={`name`}>Name</LabelForInput>
           <Input
@@ -135,9 +127,7 @@ const PartnerRegisterForm = (props) => {
           {touched.password && errors.password && (
             <FormErrorForRegister>{errors.password}</FormErrorForRegister>
           )}
-          <LabelForInput htmlFor={`confirmPassword`}>
-            Confirm password
-          </LabelForInput>
+          <LabelForInput htmlFor={`confirmPassword`}>Confirm password</LabelForInput>
           <Input
             type={`password`}
             width={`100%`}
@@ -148,14 +138,10 @@ const PartnerRegisterForm = (props) => {
             value={values.confirmPassword}
             onChange={handleChange}
             onBlur={handleBlur}
-            error={
-              touched.confirmPassword && errors.confirmPassword ? 'error' : ''
-            }
+            error={touched.confirmPassword && errors.confirmPassword ? 'error' : ''}
           />
           {touched.confirmPassword && errors.confirmPassword && (
-            <FormErrorForRegister>
-              {errors.confirmPassword}
-            </FormErrorForRegister>
+            <FormErrorForRegister>{errors.confirmPassword}</FormErrorForRegister>
           )}
           <ButtonForForm
             width={`100%`}
@@ -170,6 +156,10 @@ const PartnerRegisterForm = (props) => {
       )}
     </Formik>
   );
+};
+
+PartnerRegisterForm.propTypes = {
+  signupClick: PropTypes.func.isRequired,
 };
 
 export default PartnerRegisterForm;

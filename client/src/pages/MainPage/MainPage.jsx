@@ -8,9 +8,7 @@ const MainPage = (props) => {
       <MainPageText size='24px' weight='600'>
         Find deals on hotels, homes, and much more…
       </MainPageText>
-      <MainPageText weight='500'>
-        From cozy country homes to funky city apartments
-      </MainPageText>
+      <MainPageText weight='500'>From cozy country homes to funky city apartments</MainPageText>
       <FormMainPage />
     </ContainerMainPage>
   );

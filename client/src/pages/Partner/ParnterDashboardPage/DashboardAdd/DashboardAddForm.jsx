@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Formik } from 'formik';
 import { addHotelValidationSchema } from '../../../../validationSchemas';
 import {
@@ -334,6 +335,11 @@ const DashboardAddForm = (props) => {
       )}
     </Formik>
   );
+};
+
+DashboardAddForm.propTypes = {
+  cities: PropTypes.array.isRequired,
+  createClick: PropTypes.func.isRequired,
 };
 
 export default DashboardAddForm;

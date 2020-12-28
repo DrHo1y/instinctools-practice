@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { DashboardContainer } from '../../../styles/styledComponents';
 
 import add from '../../../img/add.png';
@@ -13,6 +14,10 @@ const PartnerDashboardPage = (props) => {
       <DashboardTable facilities={props.facilities} />
     </DashboardContainer>
   );
+};
+
+PartnerDashboardPage.propTypes = {
+  facilities: PropTypes.array.isRequired,
 };
 
 export default PartnerDashboardPage;

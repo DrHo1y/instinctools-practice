@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import { HeaderWrapperFirstControlWrapper, Button } from '../../../styles/styledComponents';
 
@@ -52,6 +53,13 @@ const HeaderFirstControl = (props) => {
       )}
     </HeaderWrapperFirstControlWrapper>
   );
+};
+HeaderFirstControl.propTypes = {
+  id: PropTypes.string.isRequired,
+  userName: PropTypes.string.isRequired,
+  isAuth: PropTypes.bool.isRequired,
+  isPartner: PropTypes.bool.isRequired,
+  signoutClick: PropTypes.func.isRequired,
 };
 
 export default HeaderFirstControl;

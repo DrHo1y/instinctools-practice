@@ -1,5 +1,6 @@
-import { connect } from 'react-redux';
 import React from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { theme, Header } from '../../styles/styledComponents';
 import HeaderFirst from './HeaderFirst/HeaderFirst';
 import HeaderSecond from './HeaderSecond/HeaderSecond';
@@ -22,5 +23,13 @@ const HeaderComponent = (props) => {
 const mapStateToProps = (state) => state;
 const mapDispatchToProps = {
   signoutClickAction,
+};
+
+HeaderComponent.propTypes = {
+  app: PropTypes.object,
+  location: PropTypes.object,
+  user: PropTypes.object.isRequired,
+  partner: PropTypes.object,
+  signoutClickAction: PropTypes.func.isRequired,
 };
 export default connect(mapStateToProps, mapDispatchToProps)(HeaderComponent);

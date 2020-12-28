@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import { Formik } from 'formik';
 import { loginFormValidationSchema } from '../../../validationSchemas';
@@ -73,6 +74,10 @@ const PartnerLoginForm = (props) => {
       )}
     </Formik>
   );
+};
+
+PartnerLoginForm.propTypes = {
+  signinClick: PropTypes.func.isRequired,
 };
 
 export default PartnerLoginForm;

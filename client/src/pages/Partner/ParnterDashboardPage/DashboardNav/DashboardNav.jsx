@@ -1,15 +1,9 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
-import {
-  DashboardNavContainer,
-  DashboardNavMenu,
-  DashboadrNavItem,
-  Img,
-} from '../../../../styles/styledComponents';
+import PropTypes from 'prop-types';
+import { DashboardNavContainer, DashboardNavMenu } from '../../../../styles/styledComponents';
 import DashboardItem from './DashboardItem';
 
 const DashboardNav = (props) => {
-  const history = useHistory();
   return (
     <DashboardNavContainer>
       <DashboardNavMenu>
@@ -18,6 +12,11 @@ const DashboardNav = (props) => {
       </DashboardNavMenu>
     </DashboardNavContainer>
   );
+};
+
+DashboardNav.propTypes = {
+  add: PropTypes.string.isRequired,
+  calendar: PropTypes.string.isRequired,
 };
 
 export default DashboardNav;

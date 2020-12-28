@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  SearchForm,
-  Input,
-  ButtonForForm,
-  FormError,
-} from '../../styles/styledComponents';
+import { SearchForm, Input, ButtonForForm, FormError } from '../../styles/styledComponents';
 import { Formik } from 'formik';
 import { searchFormValidationSchema } from '../../validationSchemas';
 
@@ -30,16 +25,7 @@ const FormMainPage = (props) => {
       }}
       validationSchema={searchFormValidationSchema}
     >
-      {({
-        values,
-        errors,
-        touched,
-        handleChange,
-        handleBlur,
-        isValid,
-        handleSubmit,
-        dirty,
-      }) => (
+      {({ values, errors, touched, handleChange, handleBlur, isValid, handleSubmit, dirty }) => (
         <SearchForm>
           <Input
             width={`350px`}
@@ -50,9 +36,7 @@ const FormMainPage = (props) => {
             value={values.where}
             error={touched.where && errors.where ? 'error' : ''}
           />
-          {touched.where && errors.where && (
-            <FormError>{errors.where}</FormError>
-          )}
+          {touched.where && errors.where && <FormError>{errors.where}</FormError>}
           <Input
             width='125px'
             type='date'
@@ -64,9 +48,7 @@ const FormMainPage = (props) => {
             value={values.dateIn}
             error={touched.dateIn && errors.dateIn ? 'error' : ''}
           />
-          {touched.dateIn && errors.dateIn && (
-            <FormError>{errors.dateIn}</FormError>
-          )}
+          {touched.dateIn && errors.dateIn && <FormError>{errors.dateIn}</FormError>}
           <Input
             width='125px'
             type='date'
@@ -78,9 +60,7 @@ const FormMainPage = (props) => {
             value={values.dateOut}
             error={touched.dateOut && errors.dateOut ? 'error' : ''}
           />
-          {touched.dateIn && errors.dateIn && (
-            <FormError>{errors.dateOut}</FormError>
-          )}
+          {touched.dateIn && errors.dateIn && <FormError>{errors.dateOut}</FormError>}
           <Input
             width='113px'
             type='number'
@@ -93,9 +73,7 @@ const FormMainPage = (props) => {
             value={values.rooms}
             error={touched.rooms && errors.rooms ? 'error' : ''}
           />
-          {touched.rooms && errors.rooms && (
-            <FormError>{errors.rooms}</FormError>
-          )}
+          {touched.rooms && errors.rooms && <FormError>{errors.rooms}</FormError>}
           <Input
             width='113px'
             type='number'
@@ -108,9 +86,7 @@ const FormMainPage = (props) => {
             value={values.adults}
             error={touched.adults && errors.adults ? 'error' : ''}
           />
-          {touched.adults && errors.adults && (
-            <FormError>{errors.adults}</FormError>
-          )}
+          {touched.adults && errors.adults && <FormError>{errors.adults}</FormError>}
           <Input
             width='113px'
             type='number'
