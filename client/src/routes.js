@@ -3,6 +3,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import LoginContainer from './pages/AuthPage/LoginPage/LoginContainer';
 import RegisterContainer from './pages/AuthPage/RegisterPage/RegisterContainer';
 import UserPage from './pages/AuthPage/UserPage';
+import CatalogContainer from './pages/CatalogPage/CatalogContainer';
 import MainPage from './pages/MainPage/MainPage';
 import DashboardAddContainer from './pages/Partner/ParnterDashboardPage/DashboardAdd/DashboardAddContainer';
 import PartnerDashboardContainer from './pages/Partner/ParnterDashboardPage/PartnerDashboardContainer';
@@ -17,6 +18,7 @@ export const useRoutes = (authConf) => {
         <Route path='/user/:id' component={UserPage} />
         <Route path='/partner/register' component={PartnerRegisterContainer} exact />
         <Route path='/partner/login' component={PartnerLoginContainer} exact />
+        <Route path='/catalog' component={CatalogContainer} exact />
         <Redirect to='/' />
       </Switch>
     );
@@ -27,6 +29,7 @@ export const useRoutes = (authConf) => {
         <Route path='/user/:id' component={UserPage} />
         <Route path='/dashboard' component={PartnerDashboardContainer} exact />
         <Route path='/dashboard/add' component={DashboardAddContainer} exact />
+        <Route path='/catalog' component={CatalogContainer} exact />
         <Redirect to='/' />
       </Switch>
     );
@@ -38,6 +41,7 @@ export const useRoutes = (authConf) => {
       <Route path='/register' component={RegisterContainer} exact />
       <Route path='/partner/register' component={PartnerRegisterContainer} exact />
       <Route path='/partner/login' component={PartnerLoginContainer} exact />
+      <Route path='/catalog' component={CatalogContainer} exact />
       <Redirect to='/' />
     </Switch>
   );
