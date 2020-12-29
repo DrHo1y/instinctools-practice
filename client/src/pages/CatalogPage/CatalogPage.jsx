@@ -7,7 +7,7 @@ export const CatalogPage = (props) => {
   return (
     <SCatalogContainer>
       <CatalogFilter />
-      <CatalogContent />
+      {!props.loading ? <CatalogContent catalog={props.catalog} /> : <div>Loading</div>}
     </SCatalogContainer>
   );
 };

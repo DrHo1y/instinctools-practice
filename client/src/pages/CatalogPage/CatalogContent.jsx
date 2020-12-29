@@ -5,10 +5,17 @@ import { SContentWrapper, SHeaderWrapper, SContent } from '../../styles/CatalogP
 export const CatalogContent = (props) => {
   return (
     <SContentWrapper>
-      <SHeaderWrapper>Header</SHeaderWrapper>
+      <SHeaderWrapper>{props.catalog.facilities.length} hotel found</SHeaderWrapper>
       <SContent>
-        <CatalogItem />
-        <CatalogItem />
+        {props.catalog.facilities.map((facility) => (
+          <CatalogItem
+            key={facility._id}
+            title={facility.title}
+            description={facility.description}
+            country={facility.location.country.name}
+            city={facility.location.city.name}
+          />
+        ))}
       </SContent>
     </SContentWrapper>
   );
