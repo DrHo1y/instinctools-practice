@@ -3,7 +3,6 @@ import { CatalogItem } from './CatalogItem';
 import { SContentWrapper, SHeaderWrapper, SContent } from '../../styles/CatalogPageComponents';
 
 export const CatalogContent = (props) => {
-  console.log(props.catalog);
   return (
     <SContentWrapper>
       <SHeaderWrapper>{props.catalog.facilities.length} hotel found</SHeaderWrapper>
