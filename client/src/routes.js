@@ -4,7 +4,7 @@ import LoginContainer from './pages/AuthPage/LoginPage/LoginContainer';
 import RegisterContainer from './pages/AuthPage/RegisterPage/RegisterContainer';
 import UserPage from './pages/AuthPage/UserPage';
 import CatalogContainer from './pages/CatalogPage/CatalogContainer';
-import MainPage from './pages/MainPage/MainPage';
+import MainPageContainer from './pages/MainPage/MainPageContainer';
 import DashboardAddContainer from './pages/Partner/ParnterDashboardPage/DashboardAdd/DashboardAddContainer';
 import PartnerDashboardContainer from './pages/Partner/ParnterDashboardPage/PartnerDashboardContainer';
 import PartnerLoginContainer from './pages/Partner/PartnerLoginPage/PartnerLoginContainer';
@@ -14,7 +14,7 @@ export const useRoutes = (authConf) => {
   if (authConf.isAuth && !authConf.isPartner) {
     return (
       <Switch>
-        <Route path='/' component={MainPage} exact />
+        <Route path='/' component={MainPageContainer} exact />
         <Route path='/user/:id' component={UserPage} />
         <Route path='/partner/register' component={PartnerRegisterContainer} exact />
         <Route path='/partner/login' component={PartnerLoginContainer} exact />
@@ -25,7 +25,7 @@ export const useRoutes = (authConf) => {
   } else if (authConf.isAuth && authConf.isPartner) {
     return (
       <Switch>
-        <Route path='/' component={MainPage} exact />
+        <Route path='/' component={MainPageContainer} exact />
         <Route path='/user/:id' component={UserPage} />
         <Route path='/dashboard' component={PartnerDashboardContainer} exact />
         <Route path='/dashboard/add' component={DashboardAddContainer} exact />
@@ -36,7 +36,7 @@ export const useRoutes = (authConf) => {
   }
   return (
     <Switch>
-      <Route path='/' component={MainPage} exact />
+      <Route path='/' component={MainPageContainer} exact />
       <Route path='/login' component={LoginContainer} exact />
       <Route path='/register' component={RegisterContainer} exact />
       <Route path='/partner/register' component={PartnerRegisterContainer} exact />

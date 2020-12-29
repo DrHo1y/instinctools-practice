@@ -86,7 +86,7 @@ const DashboardAddForm = (props) => {
               error={errors.country && touched.country ? 'error' : ''}
             >
               <Option>Select</Option>
-              <Option>Belarus</Option>
+              <Option value={'5fe0a3148cb0a95cf5cccc07'}>Belarus</Option>
             </Select>
             <Label htmlFor='city'>City</Label>
             <Select
@@ -98,7 +98,9 @@ const DashboardAddForm = (props) => {
               error={errors.city && touched.city ? 'error' : ''}
             >
               {props.cities.map((city) => (
-                <Option key={city._id}>{city.name}</Option>
+                <Option key={city._id} value={city._id}>
+                  {city.name}
+                </Option>
               ))}
             </Select>
             <Label htmlFor='address'>Address</Label>

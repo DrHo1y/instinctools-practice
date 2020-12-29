@@ -9,7 +9,7 @@ const MainPage = (props) => {
         Find deals on hotels, homes, and much more…
       </MainPageText>
       <MainPageText weight='500'>From cozy country homes to funky city apartments</MainPageText>
-      <FormMainPage />
+      <FormMainPage searchClick={props.searchClick} loading={props.app.loading} />
     </ContainerMainPage>
   );
 };

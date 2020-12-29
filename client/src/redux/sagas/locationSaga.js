@@ -1,6 +1,6 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import { getCityFetch } from '../../api/location';
-import { errorAction, hideLoader, showLoaded } from '../actions/appAction';
+import { errorAction } from '../actions/appAction';
 import { loadCityAction } from '../actions/locationAction';
 import { LOCATION_LOAD_CITY_LOADING } from '../types';
 

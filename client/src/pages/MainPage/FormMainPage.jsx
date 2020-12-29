@@ -1,9 +1,11 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import { SearchForm, Input, ButtonForForm, FormError } from '../../styles/styledComponents';
 import { Formik } from 'formik';
 import { searchFormValidationSchema } from '../../validationSchemas';
 
 const FormMainPage = (props) => {
+  const histoty = useHistory();
   const date = {
     day: new Date().getDate(),
     month: new Date().getMonth(),
@@ -21,7 +23,10 @@ const FormMainPage = (props) => {
       }}
       validateOnBlur
       onSubmit={(values) => {
-        console.log(values);
+        props.searchClick(values.where);
+        if (!props.loading) {
+          histoty.push('/catalog');
+        }
       }}
       validationSchema={searchFormValidationSchema}
     >

@@ -3,12 +3,20 @@ import { CatalogItem } from './CatalogItem';
 import { SContentWrapper, SHeaderWrapper, SContent } from '../../styles/CatalogPageComponents';
 
 export const CatalogContent = (props) => {
+  console.log(props.catalog);
   return (
     <SContentWrapper>
-      <SHeaderWrapper>Header</SHeaderWrapper>
+      <SHeaderWrapper>{props.catalog.facilities.length} hotel found</SHeaderWrapper>
       <SContent>
-        <CatalogItem />
-        <CatalogItem />
+        {props.catalog.facilities.map((facility) => (
+          <CatalogItem
+            key={facility._id}
+            title={facility.title}
+            description={facility.description}
+            country={facility.location.country.name}
+            city={facility.location.city.name}
+          />
+        ))}
       </SContent>
     </SContentWrapper>
   );

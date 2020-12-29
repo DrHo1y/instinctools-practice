@@ -70,6 +70,8 @@ export const SLocation = styled.p`
   margin-bottom: 10px;
 `;
 export const SText = styled.p`
+  height: 110px;
+  overflow: hidden;
   display: block;
   font-size: 16px;
   font-weight: 400;

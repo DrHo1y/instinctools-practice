@@ -4,8 +4,8 @@ const facilitySchema = new Schema({
   title: { type: String, required: true },
   facilityType: { type: String, required: true },
   location: {
-    country: { type: String, required: true },
-    city: { type: String, required: true },
+    country: { type: Schema.Types.ObjectId, ref: 'Country', required: true },
+    city: { type: Schema.Types.ObjectId, ref: 'City', required: true },
     address: { type: String, required: true },
     idx: { type: String, required: true },
   },
