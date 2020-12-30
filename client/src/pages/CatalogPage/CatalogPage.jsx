@@ -2,6 +2,7 @@ import React from 'react';
 import { CatalogFilter } from './CatalogFilter';
 import { CatalogContent } from './CatalogContent';
 import { SCatalogContainer } from '../../styles/CatalogPageComponents';
+import { Spinner } from '../../components/Loader/Spinner';
 
 export const CatalogPage = (props) => {
   return (
@@ -14,7 +15,7 @@ export const CatalogPage = (props) => {
           <p>Hotel not found</p>
         )
       ) : (
-        <div>Loading</div>
+        <Spinner />
       )}
     </SCatalogContainer>
   );

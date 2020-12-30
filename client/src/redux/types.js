@@ -3,6 +3,7 @@ export const SHOW_LOADER = 'SHOW_LOADER';
 export const HIDE_LOADER = 'HIDE_LOADER';
 export const SHOW_LOCAL_LOADER = 'SHOW_LOCAL_LOADER';
 export const HIDE_LOCAL_LOADER = 'HIDE_LOCAL_LOADER';
+export const SET_MESSAGE = 'SET_MESSAGE';
 export const ERROR = 'ERROR';
 
 export const SIGN_SIGNUP = 'SIGN/SIGNUP';

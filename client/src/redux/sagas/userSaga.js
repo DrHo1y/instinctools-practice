@@ -11,7 +11,13 @@ import {
   removeItemInLocalStorage,
   setItemToLocalStorage,
 } from '../../utils/localstorage';
-import { hideLoader, showLoaded } from '../actions/appAction';
+import {
+  hideLoader,
+  hideLocalLoader,
+  setMessage,
+  showLoaded,
+  showLocalLoader,
+} from '../actions/appAction';
 import {
   partnerSigninAction,
   signinAction,
@@ -48,10 +54,14 @@ function* initialWorker() {
 }
 
 function* signupWorker({ form }) {
+  yield put(showLocalLoader());
   const payload = yield call(signupFetched, form);
   yield put(signupAction(payload));
+  yield put(setMessage(payload.msg));
+  yield put(hideLocalLoader());
 }
 function* signinWorker({ form }) {
+  yield put(showLocalLoader());
   const payload = yield call(signinFetched, form);
   if (payload.token) {
     yield call(setItemToLocalStorage, 'token', payload.token);
@@ -59,11 +69,14 @@ function* signinWorker({ form }) {
   } else {
     yield put(signinErrorAction(payload));
   }
+  yield put(setMessage(payload.msg));
+  yield put(hideLocalLoader());
 }
 function* signoutWorker() {
   yield call(removeItemInLocalStorage, 'token');
   yield put(signoutAction());
 }
+
 function* signinWithTokenWorker() {
   const token = yield call(getItemInLocalStorage, 'token');
   if (token) {
@@ -76,16 +89,21 @@ function* signinWithTokenWorker() {
       } else {
         yield put(signinAction(payload));
       }
+      yield put(setMessage(payload.msg));
       yield put(hideLoader());
     }
   }
 }
 
 function* partnerSignupWorker({ form }) {
+  yield put(showLocalLoader());
   const payload = yield call(partnerSignupFetched, form);
   yield console.log(payload);
+  yield put(setMessage(payload.msg));
+  yield put(hideLocalLoader());
 }
 function* partnerSigninWorker({ form }) {
+  yield put(showLocalLoader());
   const payload = yield call(partnerSigninFetched, form);
   if (payload.token && payload.isPartner) {
     yield call(setItemToLocalStorage, 'token', payload.token);
@@ -93,4 +111,6 @@ function* partnerSigninWorker({ form }) {
   } else {
     yield put(signinErrorAction(payload));
   }
+  yield put(setMessage(payload.msg));
+  yield put(hideLocalLoader());
 }

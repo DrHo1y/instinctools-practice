@@ -1,7 +1,7 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import { createFacilitiesFetched, getAllFacilitiesForUserFetched } from '../../api/facility';
 import { getItemInLocalStorage } from '../../utils/localstorage';
-import { errorAction, hideLocalLoader, showLocalLoader } from '../actions/appAction';
+import { errorAction, hideLocalLoader, setMessage, showLocalLoader } from '../actions/appAction';
 import { createFacilityAction, getFacilityForPartnerAction } from '../actions/partnerAction';
 import { FACILITY_CREATE_CLICK, FACILITY_LOAD_FOR_PARTNER_LOADING } from '../types';
 
@@ -16,6 +16,7 @@ function* createFacilityWorker({ form }) {
     const token = yield call(getItemInLocalStorage, 'token');
     const payload = yield call(createFacilitiesFetched, form, token);
     yield put(createFacilityAction(payload));
+    yield put(setMessage(payload.msg));
     yield put(hideLocalLoader());
   } catch (error) {
     yield put(errorAction(error));
@@ -27,6 +28,7 @@ function* getFacilityForPartnerWorker() {
     const token = yield call(getItemInLocalStorage, 'token');
     const payload = yield call(getAllFacilitiesForUserFetched, token);
     yield put(getFacilityForPartnerAction(payload));
+    yield put(setMessage(payload.msg));
     yield put(hideLocalLoader());
   } catch (error) {
     yield put(errorAction(error));
