@@ -15,14 +15,15 @@ const FormMainPage = (props) => {
     <Formik
       initialValues={{
         where: '',
-        dateIn: `${date.year}-${date.month}-${date.day}`,
-        dateOut: `${date.year}-${date.month}-${date.day + 1}`,
+        dateIn: '',
+        dateOut: '',
         rooms: 1,
         adults: 1,
         children: 0,
       }}
       validateOnBlur
       onSubmit={(values) => {
+        console.log(values);
         props.searchClick(values.where);
         if (!props.loading) {
           histoty.push('/catalog');

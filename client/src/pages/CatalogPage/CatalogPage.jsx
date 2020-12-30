@@ -7,7 +7,15 @@ export const CatalogPage = (props) => {
   return (
     <SCatalogContainer>
       <CatalogFilter />
-      {!props.loading ? <CatalogContent catalog={props.catalog} /> : <div>Loading</div>}
+      {!props.loading ? (
+        props.catalog.facilities !== undefined ? (
+          <CatalogContent catalog={props.catalog} />
+        ) : (
+          <p>Hotel not found</p>
+        )
+      ) : (
+        <div>Loading</div>
+      )}
     </SCatalogContainer>
   );
 };
