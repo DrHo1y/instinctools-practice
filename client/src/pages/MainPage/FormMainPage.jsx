@@ -23,7 +23,6 @@ const FormMainPage = (props) => {
       }}
       validateOnBlur
       onSubmit={(values) => {
-        console.log(values);
         props.searchClick(values.where);
         if (!props.loading) {
           histoty.push('/catalog');
