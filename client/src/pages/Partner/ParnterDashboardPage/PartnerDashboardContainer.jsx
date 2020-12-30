@@ -25,7 +25,7 @@ const mapDispatchToProps = {
 PartnerDashboardContainer.propTypes = {
   app: PropTypes.object.isRequired,
   location: PropTypes.object,
-  partner: PropTypes.object.isRequired,
+  parner: PropTypes.object.isRequired,
   user: PropTypes.object,
   history: PropTypes.object,
   match: PropTypes.object,
