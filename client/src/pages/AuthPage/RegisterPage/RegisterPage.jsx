@@ -8,7 +8,7 @@ import {
   LoginRegisterForm,
 } from '../../../styles/styledComponents';
 import { Formik } from 'formik';
-import { registerFormValidationSchema } from '../../../validationSchemas';
+// import { registerFormValidationSchema } from '../../../validationSchemas';
 
 const RegisterPage = (props) => {
   return (
@@ -25,7 +25,7 @@ const RegisterPage = (props) => {
       onSubmit={(values) => {
         props.signupClick(values);
       }}
-      validationSchema={registerFormValidationSchema}
+      // validationSchema={registerFormValidationSchema}
     >
       {({ values, errors, touched, handleBlur, handleChange, isValid, handleSubmit, dirty }) => (
         <LoginRegisterForm>

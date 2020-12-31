@@ -54,6 +54,7 @@ function* initialWorker() {
 }
 
 function* signupWorker({ form }) {
+  yield console.log('saga -> ', form);
   yield put(showLocalLoader());
   const payload = yield call(signupFetched, form);
   yield put(signupAction(payload));

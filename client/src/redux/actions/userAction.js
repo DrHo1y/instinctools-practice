@@ -20,7 +20,10 @@ export const signinErrorAction = (payload) => ({
   payload,
 });
 export const signoutAction = () => ({ type: SIGN_SIGNOUT });
-export const signupClickAction = (form) => ({ type: SIGN_SIGNUP_CLICK, form });
+export const signupClickAction = (form) => {
+  console.log('action -> ', form);
+  return { type: SIGN_SIGNUP_CLICK, form };
+};
 export const signinClickAction = (form) => ({ type: SIGN_SIGNIN_CLICK, form });
 export const signinWithToken = () => ({ type: SIGN_SIGNIN_WITH_TOKEN });
 export const signoutClickAction = () => ({ type: SIGN_SIGNOUT_CLICK });

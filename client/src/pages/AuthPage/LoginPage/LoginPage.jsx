@@ -19,7 +19,6 @@ const LoginPage = (props) => {
       }}
       validateOnBlur
       onSubmit={(values) => {
-        console.log(values);
         props.signinClick(values);
       }}
       validationSchema={loginFormValidationSchema}
@@ -73,6 +72,7 @@ const LoginPage = (props) => {
   );
 };
 LoginPage.propTypes = {
+  app: PropTypes.object.isRequired,
   signinClick: PropTypes.func.isRequired,
 };
 
