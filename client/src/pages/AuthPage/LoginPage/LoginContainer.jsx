@@ -1,12 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { useAlert } from 'react-alert';
 import LoginPage from './LoginPage';
 
 import { signinClickAction } from '../../../redux/actions/userAction';
 
 const LoginContainer = (props) => {
-  return <LoginPage signinClick={props.signinClickAction} />;
+  const alert = useAlert();
+  const { app } = props;
+  useEffect(() => {
+    if (app.msg !== '' && app.msg !== 'OK') {
+      alert.error(app.msg);
+    }
+  }, [app.msg, alert]);
+  return <LoginPage signinClick={props.signinClickAction} app={props.app} />;
 };
 
 const mapStateToProps = (state) => state;
@@ -15,7 +23,7 @@ const mapDispatchToProps = {
 };
 
 LoginContainer.propTypes = {
-  app: PropTypes.object,
+  app: PropTypes.object.isRequired,
   location: PropTypes.object,
   partner: PropTypes.object,
   user: PropTypes.object,
