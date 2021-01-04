@@ -76,6 +76,7 @@ function* signinWorker({ form }) {
 function* signoutWorker() {
   yield call(removeItemInLocalStorage, 'token');
   yield put(signoutAction());
+  yield put(setMessage(''));
 }
 
 function* signinWithTokenWorker() {

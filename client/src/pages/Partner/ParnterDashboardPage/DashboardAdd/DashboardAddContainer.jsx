@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import DashboardAddForm from './DashboardAddForm';
@@ -7,10 +8,16 @@ import { createFacilityClickAction } from '../../../../redux/actions/partnerActi
 import { loadingCityAction } from '../../../../redux/actions/locationAction';
 
 const DashboartAddContainer = (props) => {
-  const { loadingCityAction } = props;
+  const { loadingCityAction, app } = props;
+  const history = useHistory();
   useEffect(() => {
     loadingCityAction('5fe0a3148cb0a95cf5cccc07');
   }, [loadingCityAction]);
+  useEffect(() => {
+    if (app.msg !== '' && app.msg === 'Success') {
+      history.push('/dashobard');
+    }
+  }, [app.msg, history]);
   return (
     <DashboardAddForm createClick={props.createFacilityClickAction} cities={props.location.city} />
   );
@@ -23,7 +30,7 @@ const mapDispatchToProps = {
 };
 
 DashboartAddContainer.propTypes = {
-  app: PropTypes.object,
+  app: PropTypes.object.isRequired,
   location: PropTypes.object.isRequired,
   partner: PropTypes.object,
   user: PropTypes.object,

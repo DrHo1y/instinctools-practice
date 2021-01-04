@@ -25,7 +25,7 @@ const FormMainPage = (props) => {
       onSubmit={(values) => {
         props.searchClick(values.where);
         if (!props.loading) {
-          histoty.push('/catalog');
+          histoty.push(`/catalog/${values.where}`);
         }
       }}
       validationSchema={searchFormValidationSchema}
