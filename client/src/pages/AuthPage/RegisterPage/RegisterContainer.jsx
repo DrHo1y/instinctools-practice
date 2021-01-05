@@ -3,7 +3,9 @@ import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { useAlert } from 'react-alert';
+
 import RegisterPage from './RegisterPage';
+import ErrorBoundary from '../../../components/ErrorBoundary/ErrorBoundary';
 
 import { signupClickAction } from '../../../redux/actions/userAction';
 
@@ -21,7 +23,11 @@ const RegisterContainer = (props) => {
       history.push('/login');
     }
   }, [app.msg, alert, history]);
-  return <RegisterPage signupClick={props.signupClickAction} />;
+  return (
+    <ErrorBoundary>
+      <RegisterPage signupClick={props.signupClickAction} />
+    </ErrorBoundary>
+  );
 };
 
 const mapStateToProps = (state) => state;

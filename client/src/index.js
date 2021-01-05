@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from 'react-dom';
+import ReactDOM from 'react-dom';
 import { createStore, compose, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import createSagaMiddleware from 'redux-saga';
@@ -34,4 +34,4 @@ const app = (
   </Provider>
 );
 
-render(app, document.getElementById('root'));
+ReactDOM.render(app, document.getElementById('root'));

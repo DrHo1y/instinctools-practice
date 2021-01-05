@@ -6,6 +6,7 @@ import { useAlert } from 'react-alert';
 import PartnerLoginForm from './PartnerLoginForm';
 
 import { partnerSigninClickAction } from '../../../redux/actions/userAction';
+import ErrorBoundary from '../../../components/ErrorBoundary/ErrorBoundary';
 
 const PartnerLoginContainer = (props) => {
   const { app } = props;
@@ -15,7 +16,11 @@ const PartnerLoginContainer = (props) => {
       alert.error(app.msg);
     }
   }, [app.msg, alert]);
-  return <PartnerLoginForm signinClick={props.partnerSigninClickAction} />;
+  return (
+    <ErrorBoundary>
+      <PartnerLoginForm signinClick={props.partnerSigninClickAction} />
+    </ErrorBoundary>
+  );
 };
 
 const mapStateToProps = (state) => state;
