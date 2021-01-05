@@ -2,7 +2,9 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { useAlert } from 'react-alert';
+
 import LoginPage from './LoginPage';
+import ErrorBoundary from '../../../components/ErrorBoundary/ErrorBoundary';
 
 import { signinClickAction } from '../../../redux/actions/userAction';
 
@@ -14,7 +16,11 @@ const LoginContainer = (props) => {
       alert.error(app.msg);
     }
   }, [app.msg, alert]);
-  return <LoginPage signinClick={props.signinClickAction} app={props.app} />;
+  return (
+    <ErrorBoundary>
+      <LoginPage signinClick={props.signinClickAction} app={props.app} />
+    </ErrorBoundary>
+  );
 };
 
 const mapStateToProps = (state) => state;

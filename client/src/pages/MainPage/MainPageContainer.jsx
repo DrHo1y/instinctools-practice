@@ -5,9 +5,14 @@ import PropTypes from 'prop-types';
 import { searchCatalogLocationClickAction } from '../../redux/actions/catalogAction';
 
 import MainPage from './MainPage';
+import ErrorBoundary from '../../components/ErrorBoundary/ErrorBoundary';
 
 const MainPageConteiner = (props) => {
-  return <MainPage searchClick={props.searchCatalogLocationClickAction} app={props.app} />;
+  return (
+    <ErrorBoundary>
+      <MainPage searchClick={props.searchCatalogLocationClickAction} app={props.app} />
+    </ErrorBoundary>
+  );
 };
 
 const mapStateToProps = (state) => state;

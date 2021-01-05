@@ -6,6 +6,7 @@ import DashboardAddForm from './DashboardAddForm';
 
 import { createFacilityClickAction } from '../../../../redux/actions/partnerAction';
 import { loadingCityAction } from '../../../../redux/actions/locationAction';
+import ErrorBoundary from '../../../../components/ErrorBoundary/ErrorBoundary';
 
 const DashboartAddContainer = (props) => {
   const { loadingCityAction, app } = props;
@@ -19,7 +20,12 @@ const DashboartAddContainer = (props) => {
     }
   }, [app.msg, history]);
   return (
-    <DashboardAddForm createClick={props.createFacilityClickAction} cities={props.location.city} />
+    <ErrorBoundary>
+      <DashboardAddForm
+        createClick={props.createFacilityClickAction}
+        cities={props.location.city}
+      />
+    </ErrorBoundary>
   );
 };
 

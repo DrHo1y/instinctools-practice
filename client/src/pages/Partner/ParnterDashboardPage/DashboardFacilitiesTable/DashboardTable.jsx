@@ -1,18 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { DashboatdTable, DashboatdTableItem } from '../../../../styles/styledComponents';
+import ErrorBoundary from '../../../../components/ErrorBoundary/ErrorBoundary';
 
 const DashboardTable = (props) => {
   return (
-    <DashboatdTable>
-      {props.facilities.length === 0 ? (
-        <div>No facilities</div>
-      ) : (
-        props.facilities.map((facility) => (
-          <DashboatdTableItem key={facility._id}>{facility.title}</DashboatdTableItem>
-        ))
-      )}
-    </DashboatdTable>
+    <ErrorBoundary>
+      <DashboatdTable>
+        {props.facilities.length === 0 ? (
+          <div>No facilities</div>
+        ) : (
+          props.facilities.map((facility) => (
+            <DashboatdTableItem key={facility._id}>{facility.title}</DashboatdTableItem>
+          ))
+        )}
+      </DashboatdTable>
+    </ErrorBoundary>
   );
 };
 

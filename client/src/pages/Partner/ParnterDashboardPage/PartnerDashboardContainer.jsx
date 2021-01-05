@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import PartnerDashboardPage from './PartnerDashboardPage';
 
 import { getFacilityForPartnerLoadingAction } from '../../../redux/actions/partnerAction';
+import ErrorBoundary from '../../../components/ErrorBoundary/ErrorBoundary';
 
 const PartnerDashboardContainer = (props) => {
   const { getFacilityForPartnerLoadingAction } = props;
@@ -11,7 +12,11 @@ const PartnerDashboardContainer = (props) => {
     getFacilityForPartnerLoadingAction();
   }, [getFacilityForPartnerLoadingAction]);
   if (!props.app.loading) {
-    return <PartnerDashboardPage facilities={props.parner.facilities} />;
+    return (
+      <ErrorBoundary>
+        <PartnerDashboardPage facilities={props.parner.facilities} />
+      </ErrorBoundary>
+    );
   } else {
     return <div>Loading</div>;
   }
