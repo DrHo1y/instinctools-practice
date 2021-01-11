@@ -14,11 +14,11 @@ const DashboartAddContainer = (props) => {
   useEffect(() => {
     loadingCityAction('5fe0a3148cb0a95cf5cccc07');
   }, [loadingCityAction]);
-  useEffect(() => {
-    if (app.msg !== '' && app.msg === 'Success') {
-      history.push('/dashobard');
-    }
-  }, [app.msg, history]);
+  // useEffect(() => {
+  //   if (app.msg !== '' && app.msg === 'Success') {
+  //     history.push('/dashobard');
+  //   }
+  // }, [app.msg, history]);
   return (
     <ErrorBoundary>
       <DashboardAddForm

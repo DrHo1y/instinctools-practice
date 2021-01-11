@@ -19,3 +19,14 @@ export async function getAllFacilitiesForUserFetched(token) {
     return error.response.data;
   }
 }
+
+export async function addRoomsToFacility(body, token) {
+  try {
+    const response = await axios.post('/api/facility/add/rooms', body, {
+      headers: { Authorization: token },
+    });
+    return response.data;
+  } catch (error) {
+    return error.response.data;
+  }
+}

@@ -49,7 +49,10 @@ router.post('/add', authMiddleware, async (req, res) => {
 
 router.get('/all', authMiddleware, async (req, res) => {
   try {
-    const hotels = await Facility.find({ userId: req.user.userId });
+    const hotels = await Facility.find({ userId: req.user.userId }).populate(
+      'location.country location.city',
+      'name'
+    );
     return res.status(200).json({ msg: 'Success', data: hotels });
   } catch (e) {
     return res.status(500).json({ msg: 'Server error! Try again.' });
@@ -82,6 +85,26 @@ router.post('/get/location', async (req, res) => {
     return res.status(200).json({ msg: 'Success', data: facilityCandidates });
   } catch (e) {
     return res.status(500).json({ msg: `Server error! Try againg. Error: ${e}` });
+  }
+});
+
+router.post('/add/rooms', async (req, res) => {
+  try {
+    const rooms = {
+      name: 0,
+      roomType: req.body.roomType,
+      bedCount: req.body.bedCount,
+      description: req.body.description,
+      priceAdults: req.body.priceAdults,
+      priceChildren: req.body.priceChildren,
+    };
+    const facility = await Facility.findById(req.body.hotelId);
+    for (let i = 0; i < req.body.countRooms; i += 1) {
+      await facility.addRooms(rooms);
+    }
+    return res.status(200).json({ msg: 'Success' });
+  } catch (e) {
+    return res.status(500).json({ msg: 'Server error! Try again.' });
   }
 });
 
