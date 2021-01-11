@@ -30,7 +30,30 @@ const facilitySchema = new Schema({
     minPrice: { type: Number, required: true, default: 0 },
     maxPrice: { type: Number, required: true, default: 0 },
   },
+  rooms: [
+    {
+      name: { type: Number, required: false },
+      roomType: { type: String, required: true },
+      bedCount: { type: Number, required: true },
+      descriptionRoom: { type: String, required: false },
+      priceAdults: { type: Number, required: true },
+      priceChildren: { type: Number, required: true },
+    },
+  ],
   userId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
 });
+
+facilitySchema.methods.addRooms = function (room) {
+  const clonedRooms = [...this.rooms];
+  const cloneLength = clonedRooms.length;
+  if (clonedRooms.length === 0) {
+    room.name = 1; // eslint-disable-line no-param-reassign
+  } else if (clonedRooms.length !== 0) {
+    room.name = clonedRooms[cloneLength - 1].name + 1; // eslint-disable-line no-param-reassign
+  }
+  clonedRooms.push(room);
+  this.rooms = clonedRooms;
+  return this.save();
+};
 
 module.exports = model('Hotel', facilitySchema);

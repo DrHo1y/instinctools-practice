@@ -5,7 +5,9 @@ import RegisterContainer from './pages/AuthPage/RegisterPage/RegisterContainer';
 import UserPage from './pages/AuthPage/UserPage';
 import CatalogContainer from './pages/CatalogPage/CatalogContainer';
 import MainPageContainer from './pages/MainPage/MainPageContainer';
+import AddRoomsContainer from './pages/Partner/ParnterDashboardPage/AddRooms/AddRoomsContainer';
 import DashboardAddContainer from './pages/Partner/ParnterDashboardPage/DashboardAdd/DashboardAddContainer';
+import FacilityContainer from './pages/Partner/ParnterDashboardPage/Facility/FacilityContainer';
 import PartnerDashboardContainer from './pages/Partner/ParnterDashboardPage/PartnerDashboardContainer';
 import PartnerLoginContainer from './pages/Partner/PartnerLoginPage/PartnerLoginContainer';
 import PartnerRegisterContainer from './pages/Partner/PartnerRegisterPage/PartnerRegisterContainer';
@@ -28,7 +30,9 @@ export const useRoutes = (authConf) => {
         <Route path='/' component={MainPageContainer} exact />
         <Route path='/user/:id' component={UserPage} />
         <Route path='/dashboard' component={PartnerDashboardContainer} exact />
-        <Route path='/dashboard/add' component={DashboardAddContainer} exact />
+        <Route path='/dashboard/add' component={DashboardAddContainer} />
+        <Route path='/facility/:id' component={FacilityContainer} />
+        <Route path='/add/rooms/:id' component={AddRoomsContainer} />
         <Route path='/catalog/:where' component={CatalogContainer} />
         <Redirect to='/' />
       </Switch>
