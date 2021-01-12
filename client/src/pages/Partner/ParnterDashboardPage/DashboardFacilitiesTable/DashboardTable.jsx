@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
-import { DashboatdTable, DashboatdTableItem } from '../../../../styles/styledComponents';
+import { Button, DashboatdTable, DashboatdTableItem } from '../../../../styles/styledComponents';
 import ErrorBoundary from '../../../../components/ErrorBoundary/ErrorBoundary';
 
 const DashboardTable = (props) => {
@@ -15,9 +15,21 @@ const DashboardTable = (props) => {
           props.facilities.map((facility) => (
             <DashboatdTableItem
               key={facility._id}
-              onClick={() => history.push(`/facility/${facility._id}`)}
+              // onClick={() => history.push(`/facility/${facility._id}`)}
             >
               {facility.title}
+              <Button
+                style={{ float: 'right', marginLeft: 5 }}
+                onClick={() => history.push(`/dashboard/edit/${facility._id}`)}
+              >
+                Edit facility
+              </Button>
+              <Button
+                style={{ float: 'right' }}
+                onClick={() => history.push(`/facility/${facility._id}`)}
+              >
+                View facility
+              </Button>
             </DashboatdTableItem>
           ))
         )}

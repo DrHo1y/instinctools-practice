@@ -7,6 +7,7 @@ import CatalogContainer from './pages/CatalogPage/CatalogContainer';
 import MainPageContainer from './pages/MainPage/MainPageContainer';
 import AddRoomsContainer from './pages/Partner/ParnterDashboardPage/AddRooms/AddRoomsContainer';
 import DashboardAddContainer from './pages/Partner/ParnterDashboardPage/DashboardAdd/DashboardAddContainer';
+import EditFacilityContainer from './pages/Partner/ParnterDashboardPage/EditFacility/EditFacilityContainer';
 import FacilityContainer from './pages/Partner/ParnterDashboardPage/Facility/FacilityContainer';
 import PartnerDashboardContainer from './pages/Partner/ParnterDashboardPage/PartnerDashboardContainer';
 import PartnerLoginContainer from './pages/Partner/PartnerLoginPage/PartnerLoginContainer';
@@ -30,7 +31,8 @@ export const useRoutes = (authConf) => {
         <Route path='/' component={MainPageContainer} exact />
         <Route path='/user/:id' component={UserPage} />
         <Route path='/dashboard' component={PartnerDashboardContainer} exact />
-        <Route path='/dashboard/add' component={DashboardAddContainer} />
+        <Route path='/dashboard/add' component={DashboardAddContainer} exact />
+        <Route path='/dashboard/edit/:id' component={EditFacilityContainer} />
         <Route path='/facility/:id' component={FacilityContainer} />
         <Route path='/add/rooms/:id' component={AddRoomsContainer} />
         <Route path='/catalog/:where' component={CatalogContainer} />

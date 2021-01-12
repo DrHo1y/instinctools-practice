@@ -46,6 +46,47 @@ router.post('/add', authMiddleware, async (req, res) => {
     return res.status(500).json({ msg: `Server error! Try again.${e}` });
   }
 });
+router.put('/edit', authMiddleware, async (req, res) => {
+  try {
+    const { id } = req.body;
+    const update = {
+      title: req.body.title,
+      facilityType: req.body.facilityType,
+      location: {
+        country: req.body.country,
+        city: req.body.city,
+        address: req.body.address,
+        idx: req.body.idx,
+      },
+      description: req.body.description,
+      services: {
+        parking: req.body.parking,
+        breakfast: req.body.breakfast,
+        amenity: {
+          freeWifi: req.body.freeWifi,
+          bar: req.body.bar,
+          sauna: req.body.sauna,
+          garden: req.body.garden,
+          terrace: req.body.terrace,
+          nonSmoking: req.body.nonSmoking,
+          airConditioner: req.body.airConditioner,
+          jacuzzi: req.body.jacuzzi,
+          pool: req.body.pool,
+          familyRoom: req.body.familyRoom,
+        },
+      },
+      priceRange: {
+        minPrice: req.body.minPrice,
+        maxPrice: req.body.maxPrice,
+      },
+      userId: req.user.userId,
+    };
+    await Facility.findByIdAndUpdate(id, update);
+    return res.status(200).json({ msg: 'Success update' });
+  } catch (e) {
+    return res.status(500).json({ msg: 'Server error! Try again.' });
+  }
+});
 
 router.get('/all', authMiddleware, async (req, res) => {
   try {
