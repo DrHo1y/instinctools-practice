@@ -5,13 +5,24 @@ import RegisterContainer from './pages/AuthPage/RegisterPage/RegisterContainer';
 import UserPage from './pages/AuthPage/UserPage';
 import CatalogContainer from './pages/CatalogPage/CatalogContainer';
 import MainPageContainer from './pages/MainPage/MainPageContainer';
-import AddRoomsContainer from './pages/Partner/ParnterDashboardPage/AddRooms/AddRoomsContainer';
-import DashboardAddContainer from './pages/Partner/ParnterDashboardPage/DashboardAdd/DashboardAddContainer';
-import EditFacilityContainer from './pages/Partner/ParnterDashboardPage/EditFacility/EditFacilityContainer';
-import FacilityContainer from './pages/Partner/ParnterDashboardPage/Facility/FacilityContainer';
-import PartnerDashboardContainer from './pages/Partner/ParnterDashboardPage/PartnerDashboardContainer';
 import PartnerLoginContainer from './pages/Partner/PartnerLoginPage/PartnerLoginContainer';
 import PartnerRegisterContainer from './pages/Partner/PartnerRegisterPage/PartnerRegisterContainer';
+
+const PartnerDashboardContainer = React.lazy(() =>
+  import('./pages/Partner/ParnterDashboardPage/PartnerDashboardContainer')
+);
+const FacilityContainer = React.lazy(() =>
+  import('./pages/Partner/ParnterDashboardPage/Facility/FacilityContainer')
+);
+const DashboardAddContainer = React.lazy(() =>
+  import('./pages/Partner/ParnterDashboardPage/DashboardAdd/DashboardAddContainer')
+);
+const EditFacilityContainer = React.lazy(() =>
+  import('./pages/Partner/ParnterDashboardPage/EditFacility/EditFacilityContainer')
+);
+const AddRoomsContainer = React.lazy(() =>
+  import('./pages/Partner/ParnterDashboardPage/AddRooms/AddRoomsContainer')
+);
 
 export const useRoutes = (authConf) => {
   if (authConf.isAuth && !authConf.isPartner) {
@@ -30,11 +41,13 @@ export const useRoutes = (authConf) => {
       <Switch>
         <Route path='/' component={MainPageContainer} exact />
         <Route path='/user/:id' component={UserPage} />
-        <Route path='/dashboard' component={PartnerDashboardContainer} exact />
-        <Route path='/dashboard/add' component={DashboardAddContainer} exact />
-        <Route path='/dashboard/edit/:id' component={EditFacilityContainer} />
-        <Route path='/facility/:id' component={FacilityContainer} />
-        <Route path='/add/rooms/:id' component={AddRoomsContainer} />
+        <React.Suspense fallback={<div>Loading...</div>}>
+          <Route path='/dashboard' render={() => <PartnerDashboardContainer />} exact />
+          <Route path='/facility/:id' render={() => <FacilityContainer />} />
+          <Route path='/dashboard/add' render={() => <DashboardAddContainer />} exact />
+          <Route path='/dashboard/edit/:id' render={() => <EditFacilityContainer />} />
+          <Route path='/add/rooms/:id' render={() => <AddRoomsContainer />} />
+        </React.Suspense>
         <Route path='/catalog/:where' component={CatalogContainer} />
         <Redirect to='/' />
       </Switch>
