@@ -11,6 +11,19 @@ export async function createFacilitiesFetched(body, token) {
   }
 }
 
+export async function updateFacilityFetched(body, token) {
+  try {
+    const response = await axios.put('/api/facility/edit', body, {
+      headers: {
+        Authorization: token,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    return error.response.data;
+  }
+}
+
 export async function getAllFacilitiesForUserFetched(token) {
   try {
     const response = await axios.get('/api/facility/all', { headers: { Authorization: token } });
