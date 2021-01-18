@@ -20,7 +20,9 @@ const DashboardAddContainer = React.lazy(() =>
 const EditFacilityContainer = React.lazy(() =>
   import('./pages/Partner/ParnterDashboardPage/EditFacility/EditFacilityContainer')
 );
-const AddRoomsContainer = React.lazy(() => import('./pages/Partner/ParnterDashboardPage/'));
+const AddRoomsContainer = React.lazy(() =>
+  import('./pages/Partner/ParnterDashboardPage/AddRooms/AddRoomsContainer')
+);
 
 export const useRoutes = (authConf) => {
   if (authConf.isAuth && !authConf.isPartner) {
@@ -39,7 +41,6 @@ export const useRoutes = (authConf) => {
       <Switch>
         <Route path='/' component={MainPageContainer} exact />
         <Route path='/user/:id' component={UserPage} />
-        <Route path='/catalog/:where' component={CatalogContainer} />
         <React.Suspense fallback={<div>Loading...</div>}>
           <Route path='/dashboard' render={() => <PartnerDashboardContainer />} exact />
           <Route path='/facility/:id' render={() => <FacilityContainer />} />
@@ -47,6 +48,7 @@ export const useRoutes = (authConf) => {
           <Route path='/dashboard/edit/:id' render={() => <EditFacilityContainer />} />
           <Route path='/add/rooms/:id' render={() => <AddRoomsContainer />} />
         </React.Suspense>
+        <Route path='/catalog/:where' component={CatalogContainer} />
         <Redirect to='/' />
       </Switch>
     );
