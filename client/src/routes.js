@@ -27,9 +27,20 @@ export const useRoutes = (authConf) => {
       <Switch>
         <Route path='/' component={MainPageContainer} exact />
         <Route path='/user/:id' component={UserPage} />
+<<<<<<< Updated upstream
         <Route path='/dashboard' component={PartnerDashboardContainer} exact />
         <Route path='/dashboard/add' component={DashboardAddContainer} exact />
         <Route path='/catalog/:where' component={CatalogContainer} />
+=======
+        <Route path='/catalog/:where' component={CatalogContainer} />
+        <React.Suspense fallback={<div>Loading...</div>}>
+          <Route path='/dashboard' render={() => <PartnerDashboardContainer />} exact />
+          <Route path='/facility/:id' render={() => <FacilityContainer />} />
+          <Route path='/dashboard/add' render={() => <DashboardAddContainer />} exact />
+          <Route path='/dashboard/edit/:id' render={() => <EditFacilityContainer />} />
+          <Route path='/add/rooms/:id' render={() => <AddRoomsContainer />} />
+        </React.Suspense>
+>>>>>>> Stashed changes
         <Redirect to='/' />
       </Switch>
     );

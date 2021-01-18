@@ -1,4 +1,5 @@
 import React from 'react';
+<<<<<<< Updated upstream
 import { render } from 'react-dom';
 import { createStore, compose, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
@@ -35,3 +36,9 @@ const app = (
 );
 
 render(app, document.getElementById('root'));
+=======
+import ReactDOM from 'react-dom';
+import BookerApp from './App';
+
+ReactDOM.render(<BookerApp />, document.getElementById('root'));
+>>>>>>> Stashed changes

@@ -3,6 +3,7 @@ import { searchCatalogFetched } from '../../api/catalog';
 import { errorAction, hideLocalLoader, setMessage, showLocalLoader } from '../actions/appAction';
 import { searcCatalogLocationAction } from '../actions/catalogAction';
 import { CATALOG_SEARCH_LOCATION_CLICK } from '../types';
+import { setItemToLocalStorage } from '../../utils/localstorage';
 
 export function* catalogWatcher() {
   yield takeEvery(CATALOG_SEARCH_LOCATION_CLICK, searchWorker);

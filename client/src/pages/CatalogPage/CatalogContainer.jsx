@@ -8,6 +8,7 @@ import { CatalogPage } from './CatalogPage';
 import { searchCatalogLocationClickAction } from '../../redux/actions/catalogAction';
 
 const CatalogContainer = (props) => {
+  console.log(props);
   const { searchCatalogLocationClickAction } = props;
   const { history } = props;
   const { where } = useParams();

@@ -1,20 +1,29 @@
-import React, { useEffect } from 'react';
-import { BrowserRouter } from 'react-router-dom';
-import { connect, useSelector } from 'react-redux';
+import React from 'react';
 import PropTypes from 'prop-types';
+
+import { BrowserRouter } from 'react-router-dom';
 import { useRoutes } from './routes';
+
+import { Provider, connect, useSelector } from 'react-redux';
+import store from './redux/store';
+
+import { Provider as AlertProvider } from 'react-alert';
+import AlertTemplate from 'react-alert-template-basic';
+import { alertOptiosn } from './components/Alert/index';
+
+import HeaderComponent from './components/Header/HeaderComponent';
+
 import { signinWithToken } from './redux/actions/userAction';
 import { initialApp } from './redux/actions/appAction';
 
-import HeaderComponent from './components/Header/HeaderComponent';
 import { Container } from './styles/styledComponents';
 
 function App(props) {
   const { signinWithToken, initialApp } = props;
-  useEffect(() => {
+  React.useEffect(() => {
     initialApp();
   }, [initialApp]);
-  useEffect(() => {
+  React.useEffect(() => {
     signinWithToken();
   }, [signinWithToken]);
   const authConf = useSelector((state) => ({
@@ -52,5 +61,16 @@ App.propTypes = {
   initialApp: PropTypes.func.isRequired,
   signinWithToken: PropTypes.func.isRequired,
 };
+const AppContainer = connect(mapStateToProps, mapDispatchToProps)(App);
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+const BookerApp = () => {
+  return (
+    <Provider store={store}>
+      <AlertProvider template={AlertTemplate} {...alertOptiosn}>
+        <AppContainer />
+      </AlertProvider>
+    </Provider>
+  );
+};
+
+export default BookerApp;

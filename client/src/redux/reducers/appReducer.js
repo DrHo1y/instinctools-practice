@@ -29,7 +29,7 @@ export const appReducer = (state = initialState, action) => {
     case SET_MESSAGE:
       return { ...state, msg: action.payload };
     case ERROR:
-      return { ...state, error: action.payload.msg };
+      return { ...state, error: action.payload };
     default:
       return state;
   }
