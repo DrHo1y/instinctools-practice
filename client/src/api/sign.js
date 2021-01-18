@@ -5,7 +5,7 @@ export async function signupFetched(body) {
     const response = await axios.post('/api/sign/register', body);
     return response.data;
   } catch (error) {
-    return error.response.data;
+    return error.response;
   }
 }
 
