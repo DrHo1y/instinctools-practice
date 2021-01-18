@@ -29,7 +29,8 @@
     "express-validator": "^6.8.0",
     "jsonwebtoken": "^8.5.1",
     "jwt-decode": "^3.1.2",
-    "mongoose": "^5.11.5"
+    "mongoose": "^5.11.5",
+    "sinon": "^9.2.3"
   },
   "devDependencies": {
     "@wojtekmaj/enzyme-adapter-react-17": "^0.4.1",
@@ -44,6 +45,7 @@
     "eslint-plugin-prettier": "^3.2.0",
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "nock": "^13.0.5",
     "nodemon": "^2.0.6",
     "prettier": "^2.2.1"
   }
