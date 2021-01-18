@@ -13,7 +13,6 @@ describe('Testing location saga', () => {
     };
     const country = { countryId: '5fe0a3148cb0a95cf5cccc07' };
     await runSaga(fakeStore, loadingCityWorker, country).done;
-    console.log('test 1: ', dispatchedAction);
     expect(api.getCityFetch.mock.calls.length).toBe(1);
   });
 });
