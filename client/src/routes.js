@@ -20,9 +20,7 @@ const DashboardAddContainer = React.lazy(() =>
 const EditFacilityContainer = React.lazy(() =>
   import('./pages/Partner/ParnterDashboardPage/EditFacility/EditFacilityContainer')
 );
-const AddRoomsContainer = React.lazy(() =>
-  import('./pages/Partner/ParnterDashboardPage/AddRooms/AddRoomsContainer')
-);
+const AddRoomsContainer = React.lazy(() => import('./pages/Partner/ParnterDashboardPage/'));
 
 export const useRoutes = (authConf) => {
   if (authConf.isAuth && !authConf.isPartner) {
