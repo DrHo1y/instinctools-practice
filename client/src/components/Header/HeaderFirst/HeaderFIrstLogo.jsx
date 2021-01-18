@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  HeaderWrapperFirstLogoWrapper,
-  LogoSpan,
-  Logo,
-} from '../../../styles/styledComponents';
+import { HeaderWrapperFirstLogoWrapper, LogoSpan, Logo } from '../../../styles/styledComponents';
 
 const HeaderFirstLogo = (props) => {
   return (

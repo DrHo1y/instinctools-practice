@@ -8,9 +8,9 @@ export function* loadingWatcher() {
   yield takeLatest(LOCATION_LOAD_CITY_LOADING, loadingCityWorker);
 }
 
-function* loadingCityWorker({ countryId }) {
+export function* loadingCityWorker(country) {
   try {
-    const payload = yield call(getCityFetch, countryId);
+    const payload = yield call(getCityFetch, country.countryId);
     yield put(loadCityAction(payload));
   } catch (error) {
     yield put(errorAction(error));
