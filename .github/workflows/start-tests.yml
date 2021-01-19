@@ -23,3 +23,12 @@ jobs:
       
       - name: Check npm version
         run: npm --v
+      
+      - name: Install dependency
+        run: npm install
+        
+      - name: Select client directory
+        run: cd client
+      
+      - name: Run client tests
+        run: npm run test
