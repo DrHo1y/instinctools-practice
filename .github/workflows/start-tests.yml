@@ -29,5 +29,5 @@ jobs:
       - name: Select client directory
         run: cd client
       
-      - name: Run client tests
-        run: npm run test
+      - name: Show client directory
+        run: ls -la
