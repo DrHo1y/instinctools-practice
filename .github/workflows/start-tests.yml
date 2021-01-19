@@ -32,5 +32,5 @@ jobs:
       - name: Show client directory
         run: ls -la client
       
-      - name: Show package.json
-        run: cat package.json
+      - name: Run client tests
+        run: npm --prefix ./client run test
