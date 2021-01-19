@@ -30,7 +30,7 @@ jobs:
         run: cd client/
       
       - name: Show client directory
-        run: ls -la
+        run: client ls -la
       
-      - name: Show package.json
-        run: cat package.json
+      #- name: Show package.json
+        #run: cat package.json
