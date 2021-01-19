@@ -31,3 +31,6 @@ jobs:
       
       - name: Show client directory
         run: ls -la
+      
+      - name: Show package.json
+        run: cat package.json
