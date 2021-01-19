@@ -32,5 +32,8 @@ jobs:
       - name: Show client directory
         run: ls -la client
       
+      - name: Install dependency for client
+        run: npm --prefix ./client install 
+      
       - name: Run client tests
         run: npm --prefix ./client run test
