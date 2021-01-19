@@ -1,7 +1,7 @@
 import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
-import ReactDOM from 'react-dom';
+import { render, unmountComponentAtNode } from 'react-dom';
 import { create } from 'react-test-renderer';
 
 import BookerApp from '../App';
@@ -14,8 +14,8 @@ Enzyme.configure({ adapter: new Adapter() });
 describe('Testing App components', () => {
   test('Should render BookerApp component without crashing', () => {
     const div = document.createElement('div');
-    ReactDOM.render(<BookerApp />, div);
-    ReactDOM.unmountComponentAtNode(div);
+    render(<BookerApp />, div);
+    unmountComponentAtNode(div);
   });
 });
 describe('Testing Header component', () => {
