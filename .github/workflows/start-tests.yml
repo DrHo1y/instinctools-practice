@@ -1,0 +1,25 @@
+name: Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  testing:
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - name: Start testing
+        run: echo Runing application test
+        
+      - name: Clone application repository
+        uses: actions/checkout@v1
+
+      - name: List application folder
+        run: ls -la
+      
+      - name: Check npm version
+        run: npm --v
