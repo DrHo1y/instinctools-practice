@@ -36,4 +36,4 @@ jobs:
         run: npm --prefix ./client install 
       
       - name: Run client tests
-        run: npm --prefix ./client run test:disposable -- --watchAll=false
+        run: npm --prefix ./client run test -- --watchAll=false
