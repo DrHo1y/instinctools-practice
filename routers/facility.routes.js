@@ -149,4 +149,10 @@ router.post('/add/rooms', async (req, res) => {
   }
 });
 
+router.delete('/:id', async (req, res) => {
+  const { id } = req.params;
+  await Facility.findByIdAndDelete({ _id: id });
+  res.status(200).json({ msg: '' });
+});
+
 module.exports = router;

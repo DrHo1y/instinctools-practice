@@ -11,7 +11,7 @@ const PartnerDashboardPage = (props) => {
   return (
     <DashboardContainer>
       <DashboardNav add={add} calendar={calendar} />
-      <DashboardTable facilities={props.facilities} />
+      <DashboardTable facilities={props.facilities} deleteFacilityById={props.deleteFacilityById} />
     </DashboardContainer>
   );
 };

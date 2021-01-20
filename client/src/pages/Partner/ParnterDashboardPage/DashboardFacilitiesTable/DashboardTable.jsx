@@ -6,6 +6,7 @@ import ErrorBoundary from '../../../../components/ErrorBoundary/ErrorBoundary';
 
 const DashboardTable = (props) => {
   const history = useHistory();
+  const { deleteFacilityById } = props;
   return (
     <ErrorBoundary>
       <DashboatdTable>
@@ -13,11 +14,17 @@ const DashboardTable = (props) => {
           <div>No facilities</div>
         ) : (
           props.facilities.map((facility) => (
-            <DashboatdTableItem
-              key={facility._id}
-              // onClick={() => history.push(`/facility/${facility._id}`)}
-            >
+            <DashboatdTableItem key={facility._id}>
               {facility.title}
+              <Button
+                style={{ float: 'right', marginLeft: 5, backgroundColor: 'red', color: 'white' }}
+                onClick={() => {
+                  const isSure = confirm('You are sure?');
+                  isSure ? deleteFacilityById(facility._id) : alert('OK');
+                }}
+              >
+                Delete
+              </Button>
               <Button
                 style={{ float: 'right', marginLeft: 5 }}
                 onClick={() => history.push(`/dashboard/edit/${facility._id}`)}
