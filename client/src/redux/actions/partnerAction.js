@@ -2,6 +2,7 @@ import {
   FACILITY_ADD_ROOM_TO_FACILITY_CLICK,
   FACILITY_CREATE,
   FACILITY_CREATE_CLICK,
+  FACILITY_DELETE_FACILITY_CLICK,
   FACILITY_LOAD_FOR_PARTNER,
   FACILITY_LOAD_FOR_PARTNER_LOADING,
   FACILITY_UPDATE,
@@ -23,3 +24,4 @@ export const addRoomsToFacilityActionClick = (form) => ({
   type: FACILITY_ADD_ROOM_TO_FACILITY_CLICK,
   form,
 });
+export const deleteFacilityById = (id) => ({ type: FACILITY_DELETE_FACILITY_CLICK, id });

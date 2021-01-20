@@ -43,3 +43,12 @@ export async function addRoomsToFacility(body, token) {
     return error.response.data;
   }
 }
+
+export async function deleteFacilityById(id) {
+  try {
+    const response = await axios.delete(`/api/facility/${id}`);
+    return response.data;
+  } catch (error) {
+    return error.response.data;
+  }
+}

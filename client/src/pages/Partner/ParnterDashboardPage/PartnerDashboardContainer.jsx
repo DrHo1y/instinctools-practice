@@ -3,18 +3,24 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import PartnerDashboardPage from './PartnerDashboardPage';
 
-import { getFacilityForPartnerLoadingAction } from '../../../redux/actions/partnerAction';
+import {
+  getFacilityForPartnerLoadingAction,
+  deleteFacilityById,
+} from '../../../redux/actions/partnerAction';
 import ErrorBoundary from '../../../components/ErrorBoundary/ErrorBoundary';
 
 const PartnerDashboardContainer = (props) => {
-  const { getFacilityForPartnerLoadingAction } = props;
+  const { getFacilityForPartnerLoadingAction, deleteFacilityById } = props;
   useEffect(() => {
     getFacilityForPartnerLoadingAction();
   }, [getFacilityForPartnerLoadingAction]);
   if (!props.app.loading) {
     return (
       <ErrorBoundary>
-        <PartnerDashboardPage facilities={props.parner.facilities} />
+        <PartnerDashboardPage
+          facilities={props.parner.facilities}
+          deleteFacilityById={deleteFacilityById}
+        />
       </ErrorBoundary>
     );
   } else {
@@ -25,6 +31,7 @@ const PartnerDashboardContainer = (props) => {
 const mapStateToProps = (state) => state;
 const mapDispatchToProps = {
   getFacilityForPartnerLoadingAction,
+  deleteFacilityById,
 };
 
 PartnerDashboardContainer.propTypes = {
@@ -35,6 +42,7 @@ PartnerDashboardContainer.propTypes = {
   history: PropTypes.object,
   match: PropTypes.object,
   getFacilityForPartnerLoadingAction: PropTypes.func.isRequired,
+  deleteFacilityById: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(PartnerDashboardContainer);
